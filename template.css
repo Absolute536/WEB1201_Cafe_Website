@@ -1,0 +1,75 @@
+/* The back of the webpage itself */
+body
+{   
+    background-color:#000000;
+}
+
+/* The navigation area */
+nav
+{
+    background-color: #c8b6a6;
+    padding: 1em;
+}
+
+/* The display of the logo on mobile */
+nav img
+{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The vertical side navigation */
+nav ul
+{
+    list-style-type: none;
+    font-weight: bold;
+    border-left: 2px;
+    border-style: solid;
+    padding-right: 2em;
+    padding-left: 0em;
+    position: fixed;
+    z-index: 1;
+}
+
+
+/* The menu button */
+.menuButton
+{
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    background-color: #d9d9d9;
+    float: left;
+}
+
+/* The "bar" of the menu button */
+.menuButton>div
+{
+    width: 35px;
+    height: 4px;
+    background-color: #000000;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+/* The main content area in the body */
+.content
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    padding-bottom: 10em; /* A placeholder to show the area of the main content */
+    background-color: #a4907c;
+    
+}
+
+/* The footer area */
+footer
+{
+    background-color: #c8b6a6;
+    padding-bottom: 5em;
+}
