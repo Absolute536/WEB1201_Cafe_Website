@@ -1,0 +1,117 @@
+/* The back of the webpage itself */
+body
+{   
+    background-color:#000000;
+}
+
+/* The navigation area at the top */
+nav
+{
+    background-color: #c8b6a6;
+    padding: 0.5em;
+}
+
+/* The display of the logo */
+nav img
+{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The vertical side navigation */
+.sidebarNav
+{
+    list-style-type: none;
+
+    border-width: 1px;
+    border-left-width: 0px;
+    border-style: solid;
+
+    padding-top: 6em;
+    padding-right: 1.5em;
+    padding-left: 1em;
+
+    background-color: #c8b6a6;
+
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+
+/* The list item (links) in the side navigation */
+.sidebarNav a
+{
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    padding-right: 2em;
+}
+
+.sidebarNav a:hover
+{
+    color: #d9d9d9;
+}
+
+.sidebarNav .closebutton 
+{
+    font-size: 3em;
+    top: 0;
+    right: 0;
+    text-align: right;
+    position: absolute;
+}
+
+.dashedHr
+{
+    border-top-style: dashed;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+/* The menu button */
+.menuButton
+{
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    background-color: #d9d9d9;
+    float: left;
+}
+
+    /* The "bar" of the menu button */
+    .menuButton>div
+    {
+        width: 35px;
+        height: 4px;
+        background-color: #000000;
+        margin-top: 9px;
+        margin-bottom: 9px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+
+
+/* The main content area in the body */
+.content
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding-bottom: 30em; /* A placeholder to show the area of the main content */
+    background-color: #a4907c;
+    
+}
+
+/* The footer area */
+footer
+{
+    background-color: #c8b6a6;
+    padding-bottom: 5em;
+}

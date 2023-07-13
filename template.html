@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="template.css">
+        <link rel="stylesheet" media="screen and (max-width: 768px)" href="template_mobile.css">
     </head>
 
     <body>
@@ -19,22 +19,27 @@
                 <div></div>
             </div>
 
-            <ul>
-                <li>Home</li>
+            <ul class="sidebarNav">
+                <li class="closebutton"><a>&times;</a></li>
+                <li><a>Home</a></li>
                 <hr>
-                <li>About</li>
+                <li><a>About</a></li>
                 <hr>
-                <li>Con</li>
+                <li><a>Contact</a></li>
                 <hr>
-                <li>Menu</li>
+                <li><a>Menu</a></li>
+                <hr class="dashedHr">
+                <!-- Inline style is used to indent the Promo link-->
+                <li><a style="text-indent: 1em;">Promo</a></li>
                 <hr>
-                <li>Order</li>
+                <li><a>Order</a></li>
                 <hr>
-                <li>FAQ</li>
+                <li><a>FAQ</a></li>
             </ul>
+            
 
             <a href="home.html">
-                <img src="images/icons/cafeLogo.png" width="55" height="55" alt="The Logo of the cafe">
+                <img src="images/icons/cafeLogo.png" width="75" height="75d" alt="The Logo of the cafe">
             </a>
         </nav>
 
