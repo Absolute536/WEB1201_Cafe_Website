@@ -105,6 +105,7 @@ nav
     border-style: solid;
 
     padding-left: 0;
+    padding-top: 2em;
 
     background-color: #c8b6a6;
 
@@ -117,41 +118,56 @@ nav
     left: 0;
     
     /* width is 0 to hide the sidebar, we will use javascript to modify it so that it will be displayed */
-    
+    width: 0;
 
     /* Setting overflow to hidden will allow the content of the navigation bar to be invisible when the width is 0 */
     /* Because the content will become overflowed and will be visible even when the width is 0 */
     overflow: hidden;  
-    
+
+    transition: 1.0s;
 }
 
 /* The list item (links) in the side navigation */
 .sidebarNav a
 {
-    display: block;
+    display: inline-block;
+
     font-weight: bold;
+    font-size: 1em;
     text-decoration: none;
     
-    padding: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 3em;  
 }
 
-.sidebarNav li:hover
+.sidebarNav li:hover:not(.closeButton) 
 {
     background-color: #d9d9d9;
 }
 
 .sidebarNav .closeButton 
 {
-    font-size: 3.3em;
-    text-align: center;
-    padding: 0;
+    font-size: 3.5em;
+    text-align: center; /* align the close (cross) icon */
+
+    padding-top: 0;
+    padding-bottom: 0.5em;
+    padding-left: 0;
+    padding-right: 0;
+
+    cursor: pointer;
 }
 
+/*
 .sidebarNav .closeButton:hover
 {
-    background-color: #c8b6a6; /* explicitly override the background-color back to the default */
+    background-color: #c8b6a6; 
     color: #d9d9d9;
 }
+*/
+/* explicitly override the background-color back to the default */
 
 /* Styling the hr in the side navigation */
 .sidebarNav hr
@@ -174,6 +190,7 @@ nav
     padding-right: 0.4em;
     margin-right: auto;
     background-color: #d9d9d9;
+    cursor: pointer;
 }
 
 /* The "bar" that makes up the menu button */
@@ -207,6 +224,8 @@ footer
 {   
     display: flex;
     background-color: #c8b6a6;
-    padding-bottom: 5em; /* Placeholder to show the area of the footer */
+    padding-bottom: 10em; /* Placeholder to show the area of the footer */
     width: 100%;
+
+    font-size: 0.5em;
 }

@@ -12,8 +12,9 @@
     </head>
 
     <body>
+        <script src="scripts/global.js"></script>
         <nav>
-            <div class="menuButton">
+            <div class="menuButton" onclick="openNav();">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -23,9 +24,9 @@
                 <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
             </a>
 
-            <!--Use back ul tmr damn it all-->
-            <ul class="sidebarNav">
-                <li class="closeButton"><a>&times;</a></li>
+            <ul class="sidebarNav" id="sidebarNav">
+                <!--The close button/icon is represented by a multiplication sign (cross)-->
+                <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">&times;</li>
                 <li><a>Home</a></li>
                 <hr>
                 <li><a>About</a></li>
