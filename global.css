@@ -1,0 +1,143 @@
+/* The back of the webpage itself */
+body
+{   
+    background-color:#000000;
+    margin: 0;
+}
+
+/* The navigation area at the top */
+nav
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #c8b6a6;
+    padding: 0.5em;
+
+    width: 100%;
+}
+
+.nav__div--empty
+{
+    margin-left: auto; /* so that this flex item will align to the right */
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    width: 40px;
+}
+
+/* The vertical side navigation */
+.sidebarNav
+{
+    list-style-type: none;
+
+    border-width: 1px;
+    border-top-width: 0;
+    border-style: solid;
+
+    padding-left: 0;
+
+    background-color: #c8b6a6;
+
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+
+    margin: 0;
+    top: 0;
+    left: 0;
+    
+    /* width is 0 to hide the sidebar, we will use javascript to modify it so that it will be displayed */
+    width: 0;
+
+    /* Setting overflow to hidden will allow the content of the navigation bar to be invisible when the width is 0 */
+    /* Because the content will become overflowed and will be visible even when the width is 0 */
+    overflow: hidden;  
+    
+}
+
+/* The list item (links) in the side navigation */
+.sidebarNav a
+{
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.sidebarNav li:hover
+{
+    background-color: #d9d9d9;
+}
+
+.sidebarNav .closeButton 
+{
+    font-size: 3.3em;
+    text-align: center;
+
+}
+.sidebarNav li.closeButton a:hover
+{
+    background-color: #c8b6a6; /* inherit background-color even when cursor is hovered to only chnage text color */
+    color: #d9d9d9;
+}
+
+.sidebarNav hr
+{
+    width: 75%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color:#000000;
+}
+
+
+/* The menu button */
+.menuButton
+{
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    margin-right: auto;
+    background-color: #d9d9d9;
+}
+
+/* The "bar" of the menu button */
+.menuButton>div
+{
+    width: 40px;
+    height: 4px;
+    background-color: #000000;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+
+/* The main content area in the body */
+.content
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding-bottom: 30em; /* A placeholder to show the area of the main content, should be removed later */
+    background-color: #a4907c;
+    
+}
+
+/* The footer area */
+footer
+{
+    background-color: #c8b6a6;
+    padding-bottom: 5em;
+    width: 100%;
+}
