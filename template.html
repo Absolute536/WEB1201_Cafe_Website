@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" media="screen and (max-width: 768px)" href="template_mobile.css">
+        <link rel="stylesheet" media="screen and (max-width: 768px)" href="global.css">
     </head>
 
     <body>
@@ -19,8 +19,13 @@
                 <div></div>
             </div>
 
+            <a href="index.html">
+                <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
+            </a>
+
+            <!--Use back ul tmr damn it all-->
             <ul class="sidebarNav">
-                <li class="closebutton"><a>&times;</a></li>
+                <li class="closeButton"><a>&times;</a></li>
                 <li><a>Home</a></li>
                 <hr>
                 <li><a>About</a></li>
@@ -28,8 +33,9 @@
                 <li><a>Contact</a></li>
                 <hr>
                 <li><a>Menu</a></li>
-                <hr class="dashedHr">
-                <!-- Inline style is used to indent the Promo link-->
+                <!-- Inline style is used to style one particular hr as dashed -->
+                <hr style="border-style: dashed;">
+                <!-- Inline style is used to indent the Promo link -->
                 <li><a style="text-indent: 1em;">Promo</a></li>
                 <hr>
                 <li><a>Order</a></li>
@@ -37,10 +43,7 @@
                 <li><a>FAQ</a></li>
             </ul>
             
-
-            <a href="home.html">
-                <img src="images/icons/cafeLogo.png" width="75" height="75d" alt="The Logo of the cafe">
-            </a>
+            <div class="nav__div--empty"></div>
         </nav>
 
         <main class="content">

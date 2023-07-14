@@ -1,3 +1,66 @@
+/* Specifying custom font faces */
+/* ============================ */
+@font-face
+{
+    font-family: Abel;
+    src: url(fonts/Abel-Regular.ttf);
+}
+@font-face 
+{
+    font-family: Barlow;
+    src: url(fonts/Barlow-Regular.ttf);
+}
+@font-face 
+{
+    font-family: Barlow;
+    src: url(fonts/Barlow-Bold.ttf);
+    font-weight: bold;
+}
+@font-face 
+{
+    font-family: Barlow;
+    src: url(fonts/Barlow-Italic.ttf);
+    font-style: italic;
+}
+@font-face 
+{
+    font-family: Barlow;
+    src: url(fonts/Barlow-BoldItalic.ttf);
+    font-style: italic;
+    font-weight: bold;
+}
+@font-face
+{
+    font-family: Libre Baskerville;
+    src: url(fonts/LibreBaskerville-Regular.ttf);
+}
+@font-face 
+{
+    font-family: Libre Baskerville;
+    src: url(fonts/LibreBaskerville-Bold.ttf);
+    font-weight: bold;
+}
+@font-face 
+{
+    font-family: Libre Baskerville;
+    src: url(fonts/LibreBaskerville-Italic.ttf);
+    font-style: italic;
+}
+@font-face 
+{
+    font-family: Noto-Serif;
+    src: url(fonts/NotoSerif-VariableFont_wdth\,wght.ttf);
+}
+@font-face 
+{
+    font-family: Noto-serif;
+    src: url(fonts/NotoSerif-Italic-VariableFont_wdth\,wght.ttf);
+    font-style: italic;
+}
+
+/* Mobile Display Style Rule */
+/* ========================= */
+
 /* The back of the webpage itself */
 body
 {   
@@ -17,11 +80,16 @@ nav
     padding: 0.5em;
 
     width: 100%;
+
+    font-family: Noto-serif, Libre Baskerville, Georgia;
 }
 
-.nav__div--empty
+.nav__div--empty /* This class is used to configure the empty div in order to center the logo */
 {
-    margin-left: auto; /* so that this flex item will align to the right */
+    margin-left: auto; /* margin-left to auto will align this flex item to the right */
+
+    /* The following declarations are used to configure the space taken up by the empty div
+    so that it will take up the same space as the menubutton, thus centering the logo*/
     padding-right: 0.4em;
     padding-left: 0.4em;
     width: 40px;
@@ -49,7 +117,7 @@ nav
     left: 0;
     
     /* width is 0 to hide the sidebar, we will use javascript to modify it so that it will be displayed */
-    width: 0;
+    
 
     /* Setting overflow to hidden will allow the content of the navigation bar to be invisible when the width is 0 */
     /* Because the content will become overflowed and will be visible even when the width is 0 */
@@ -64,10 +132,7 @@ nav
     font-weight: bold;
     text-decoration: none;
     
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding: 1em;
 }
 
 .sidebarNav li:hover
@@ -79,14 +144,16 @@ nav
 {
     font-size: 3.3em;
     text-align: center;
-
+    padding: 0;
 }
-.sidebarNav li.closeButton a:hover
+
+.sidebarNav .closeButton:hover
 {
-    background-color: #c8b6a6; /* inherit background-color even when cursor is hovered to only chnage text color */
+    background-color: #c8b6a6; /* explicitly override the background-color back to the default */
     color: #d9d9d9;
 }
 
+/* Styling the hr in the side navigation */
 .sidebarNav hr
 {
     width: 75%;
@@ -109,7 +176,7 @@ nav
     background-color: #d9d9d9;
 }
 
-/* The "bar" of the menu button */
+/* The "bar" that makes up the menu button */
 .menuButton>div
 {
     width: 40px;
@@ -122,7 +189,6 @@ nav
 }
 
 
-
 /* The main content area in the body */
 .content
 {
@@ -131,13 +197,16 @@ nav
     width: 90%;
     padding-bottom: 30em; /* A placeholder to show the area of the main content, should be removed later */
     background-color: #a4907c;
+
+    font-family: Abel, Barlow, Arial;
     
 }
 
 /* The footer area */
 footer
-{
+{   
+    display: flex;
     background-color: #c8b6a6;
-    padding-bottom: 5em;
+    padding-bottom: 5em; /* Placeholder to show the area of the footer */
     width: 100%;
 }
