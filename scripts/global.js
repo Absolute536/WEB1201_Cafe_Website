@@ -24,3 +24,13 @@ function openNav()
     // the sidebar will only be used on mobile display, so a static value is fine //
     document.getElementById("sidebarNav").style.width = "150px";
 }
+
+function expandNav()
+{
+    if (window.screen.width >= "768px")
+    {
+        expand = document.getElementById("sidebarNav");
+        expand.style.width = "fit-content";
+        expand.style.display = "inline";
+    }
+}

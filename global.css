@@ -65,6 +65,8 @@
 body
 {   
     background-color:#000000;
+    /* setting overflow-x to hidden to prevent any horizontal scrolling */
+    overflow-x: hidden;
     margin: 0;
 }
 
@@ -75,8 +77,13 @@ nav
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    
+    top: 0;
+    
 
     background-color: #c8b6a6;
+    color:#000000;
     padding: 0.5em;
 
     width: 100%;
@@ -90,6 +97,7 @@ nav
 
     /* The following declarations are used to configure the space taken up by the empty div
     so that it will take up the same space as the menubutton, thus centering the logo*/
+    /* kinda hard coded this part */
     padding-right: 0.4em;
     padding-left: 0.4em;
     width: 40px;
@@ -135,6 +143,7 @@ nav
     font-weight: bold;
     font-size: 1em;
     text-decoration: none;
+    color: inherit;
     
     padding-top: 1em;
     padding-bottom: 1em;
@@ -142,12 +151,15 @@ nav
     padding-right: 3em;  
 }
 
+/* Configure the background color to change when the cursor is hovered over for the links in the sidebar */
+/* The close icon is exempted from this through the usage of not selector */
 .sidebarNav li:hover:not(.closeButton) 
 {
     background-color: #d9d9d9;
 }
 
-.sidebarNav .closeButton 
+/* The close icon */
+.closeButton 
 {
     font-size: 3.5em;
     text-align: center; /* align the close (cross) icon */
@@ -160,16 +172,7 @@ nav
     cursor: pointer;
 }
 
-/*
-.sidebarNav .closeButton:hover
-{
-    background-color: #c8b6a6; 
-    color: #d9d9d9;
-}
-*/
-/* explicitly override the background-color back to the default */
-
-/* Styling the hr in the side navigation */
+/* Each horizontal line in the sidebar */
 .sidebarNav hr
 {
     width: 75%;
@@ -223,9 +226,73 @@ nav
 footer
 {   
     display: flex;
+    
     background-color: #c8b6a6;
     padding-bottom: 10em; /* Placeholder to show the area of the footer */
     width: 100%;
 
     font-size: 0.5em;
+}
+
+/* For desktop display */
+/* =================== */
+@media screen and (min-width: 768px)
+{
+    nav
+    {
+        justify-content: flex-start;
+    }
+
+    nav > a > img
+    {
+        margin-right: auto;
+    }
+
+    .menuButton
+    {
+        display: none;
+    }
+
+    .closeButton
+    {
+        display: none;
+    }
+
+    .sidebarNav
+    {
+        margin-left: auto;
+        position: static;
+        width:fit-content;
+        height: fit-content;
+
+        padding-right: 0;
+
+        display: inline;
+
+        border-style: none;
+
+        z-index: 0;
+        
+    }
+
+    .nav__div--empty
+    {
+        display: none;
+    }
+
+    .sidebarNav li:not(.closeButton)
+    {
+        display: inline;
+    }
+
+    .sidebarNav li a
+    {
+        display: inline;
+        padding: 0;
+    }
+
+    .sidebarNav hr
+    {
+        display: none;
+    }
 }
