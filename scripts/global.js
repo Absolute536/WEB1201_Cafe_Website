@@ -27,8 +27,10 @@ function openNav()
 
 /*
 This function is to make sure that the navigation links will appear horizontally properly even after the menu button is clicked
-Previously, clicking the menu button or the close icon will change the width value of the sidebar, causing it to appear
-incorrectly even it is placed horizontally
+Previously, clicking the menu button or the close icon will change the width value of the sidebar using javascript
+This will override the values set in the css as the DOM styling have a higher priority than the styles set in css
+Therefore, we need to have this along with the onresize event handler (in html) to make sure everything works correctly
+Perhaps not the best solution though
 */
 function responsiveNav()
 {

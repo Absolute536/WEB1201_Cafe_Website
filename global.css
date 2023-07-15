@@ -263,6 +263,7 @@ footer
         margin-right: auto;
     }
 
+    /* Hide the menu button, close button, the empty div and all the horizontal lines on mobile display */
     .menuButton,
     .closeButton,
     .nav__div--empty,
@@ -274,8 +275,8 @@ footer
     .sidebarNav
     {
         margin-left: auto;
-        position: static;
-        width: fit-content;
+        position: static; /* the default value, so that the links will be in the normal flow */
+        width: fit-content; /* "Unhide" the navigation links */
         height: fit-content;
 
         padding-top: 0;
@@ -283,19 +284,22 @@ footer
         padding-left: 0;
         padding-right: 5em;
 
-        display: inline;
+        display: inline; /* make the list of links become inline */
 
         border-style: none;
 
-        transition: 0s;
+        transition: 0s; /* remove any transition effect */
         
     }
 
+    /* make the list item (links) except the close icon become inline */
+    /* this is to display the links horizontally */
     .sidebarNav li:not(.closeButton)
     {
         display: inline;
     }
 
+    /* make the text color change on hover instead of the whole background on desktop display */
     .sidebarNav li:not(.closeButton):hover
     {
         background-color: #c8b6a6;
@@ -304,6 +308,7 @@ footer
 
     .sidebarNav li a
     {
+        /* remove any padding except the right so that there will be some space between each link */
         padding-top: 0;
         padding-bottom: 0;
         padding-left: 0;
