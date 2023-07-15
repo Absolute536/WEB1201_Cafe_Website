@@ -25,12 +25,24 @@ function openNav()
     document.getElementById("sidebarNav").style.width = "150px";
 }
 
-function expandNav()
+/*
+This function is to make sure that the navigation links will appear horizontally properly even after the menu button is clicked
+Previously, clicking the menu button or the close icon will change the width value of the sidebar, causing it to appear
+incorrectly even it is placed horizontally
+*/
+function responsiveNav()
 {
-    if (window.screen.width >= "768px")
+    let expand = document.getElementById("sidebarNav");
+
+    if ((window.innerWidth >= 768))
     {
-        expand = document.getElementById("sidebarNav");
         expand.style.width = "fit-content";
-        expand.style.display = "inline";
     }
+    else if (expand.style.width == "fit-content")
+    {
+        expand.style.width = "0"; // IT'S NOT A BUG, IT'S A FEATURE :)))))
+    }
+    
 }
+
+

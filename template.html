@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="global.css">
     </head>
 
-    <body>
+    <body onresize="responsiveNav();">
         <script src="scripts/global.js"></script>
         <nav>
             <div class="menuButton" onclick="openNav();">
@@ -24,7 +24,7 @@
                 <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
             </a>
 
-            <ul class="sidebarNav" id="sidebarNav" onresize="expandNav();">
+            <ul class="sidebarNav" id="sidebarNav">
                 <!--The close button/icon is represented by a multiplication sign (cross)-->
                 <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">&times;</li>
                 <li><a href="index.html">Home</a></li>
@@ -37,7 +37,7 @@
                 <!-- Inline style is used to style one particular hr as dashed -->
                 <hr style="border-style: dashed;">
                 <!-- Inline style is used to indent the Promo link -->
-                <li><a href="promo.html" style="text-indent: 1em;">Promo</a></li>
+                <li id="promo"><a href="promo.html">Promo</a></li>
                 <hr>
                 <li><a href="order.html">Order</a></li>
                 <hr>

@@ -58,6 +58,11 @@
     font-style: italic;
 }
 
+*
+{
+    box-sizing: border-box;
+}
+
 /* Mobile Display Style Rule */
 /* ========================= */
 
@@ -67,6 +72,7 @@ body
     background-color:#000000;
     /* setting overflow-x to hidden to prevent any horizontal scrolling */
     overflow-x: hidden;
+
     margin: 0;
 }
 
@@ -80,7 +86,6 @@ nav
     position: sticky;
     
     top: 0;
-    
 
     background-color: #c8b6a6;
     color:#000000;
@@ -131,18 +136,19 @@ nav
     /* Setting overflow to hidden will allow the content of the navigation bar to be invisible when the width is 0 */
     /* Because the content will become overflowed and will be visible even when the width is 0 */
     overflow: hidden;  
-
+    
     transition: 1.0s;
 }
 
 /* The list item (links) in the side navigation */
-.sidebarNav a
+.sidebarNav li a
 {
     display: inline-block;
 
     font-weight: bold;
     font-size: 1em;
     text-decoration: none;
+    /* override the default blue colour for <a> */
     color: inherit;
     
     padding-top: 1em;
@@ -170,6 +176,11 @@ nav
     padding-right: 0;
 
     cursor: pointer;
+}
+
+#promo
+{
+    text-indent: 1em;
 }
 
 /* Each horizontal line in the sidebar */
@@ -236,24 +247,26 @@ footer
 
 /* For desktop display */
 /* =================== */
-@media screen and (min-width: 768px)
+
+@media screen and (min-width: 768px) 
 {
     nav
     {
+        /* change to justify-content to flex-start, the other alignment will follow what was defined */
         justify-content: flex-start;
     }
 
+    /* The cafe logo */
     nav > a > img
     {
+        /* set margin-right to auto will push the logo to the right as menu and the empty div are set to display: none */
         margin-right: auto;
     }
 
-    .menuButton
-    {
-        display: none;
-    }
-
-    .closeButton
+    .menuButton,
+    .closeButton,
+    .nav__div--empty,
+    .sidebarNav hr
     {
         display: none;
     }
@@ -262,22 +275,20 @@ footer
     {
         margin-left: auto;
         position: static;
-        width:fit-content;
+        width: fit-content;
         height: fit-content;
 
-        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 5em;
 
         display: inline;
 
         border-style: none;
 
-        z-index: 0;
+        transition: 0s;
         
-    }
-
-    .nav__div--empty
-    {
-        display: none;
     }
 
     .sidebarNav li:not(.closeButton)
@@ -285,14 +296,26 @@ footer
         display: inline;
     }
 
-    .sidebarNav li a
+    .sidebarNav li:not(.closeButton):hover
     {
-        display: inline;
-        padding: 0;
+        background-color: #c8b6a6;
+        color: #d9d9d9;
     }
 
-    .sidebarNav hr
+    .sidebarNav li a
+    {
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 1em;
+    }
+
+    #promo
     {
         display: none;
+        position: relative;
+        background-color:#d9d9d9;
     }
+
+    
 }
