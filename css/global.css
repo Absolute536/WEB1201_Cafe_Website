@@ -147,7 +147,7 @@ nav
     /* Because the content will become visible even when the width is 0, as the width is only for the bar itself */
     overflow-x: hidden;
     /* overflow-y to scroll to provide a scroll bar for users if they zoomed in while using the side navigation */
-    overflow-y: scroll;
+    overflow-y: auto;
     
     transition: 1.0s;
 }
@@ -402,6 +402,8 @@ footer
         border-style: none;
 
         font-size: 1.2em;
+
+        overflow-y: hidden;
 
         transition: 0s; /* remove any transition effect */ 
     }
