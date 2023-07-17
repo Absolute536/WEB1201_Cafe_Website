@@ -31,18 +31,18 @@
 }
 @font-face
 {
-    font-family: Libre Baskerville;
+    font-family: "Libre Baskerville";
     src: url(fonts/LibreBaskerville-Regular.ttf);
 }
 @font-face 
 {
-    font-family: Libre Baskerville;
+    font-family: "Libre Baskerville";
     src: url(fonts/LibreBaskerville-Bold.ttf);
     font-weight: bold;
 }
 @font-face 
 {
-    font-family: Libre Baskerville;
+    font-family: "Libre Baskerville";
     src: url(fonts/LibreBaskerville-Italic.ttf);
     font-style: italic;
 }
@@ -103,7 +103,7 @@ nav
 
     width: 100%;
 
-    font-family: Noto-serif, Libre Baskerville, Georgia;
+    font-family: Noto-serif, "Libre Baskerville", Georgia;
 }
 
 .nav__div--empty /* This class is used to configure the empty div in order to center the logo */
