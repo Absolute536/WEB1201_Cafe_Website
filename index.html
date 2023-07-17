@@ -3,12 +3,48 @@
 <html lang="en">
 
     <head>
-        <title>Website template</title>
+        <title>Daily Cafe | Home</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="css/global.css">
+
+        <style>
+            header
+            {
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+                height: 100%;
+
+                padding-top: 2em;
+                padding-bottom: 2em;
+                padding-left: 3em;
+                padding-right: 3em;
+                
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/photos/Home_Hero.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+
+                color: #ffffff;
+                font-family: Noto-serif, Libre Baskerville, Georgia;
+                font-weight: bold;
+                font-size: 1.5em;
+                text-align: center;
+            }
+                
+
+            @media screen and (min-width: 768px)
+            {
+                header
+                {
+                    font-size: 4.5em;
+                    
+                }
+            }
+        </style>
     </head>
 
     <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
@@ -83,7 +119,11 @@
 
         <!--The header of the page-->
         <header>
-
+            <div>
+                Daily cafe
+                <br>
+                <span style="font-size: 0.2em; font-style: italic; font-weight: normal;">Best coffee in town</span>
+            </div>
         </header>
 
         <!--The main content of the page-->

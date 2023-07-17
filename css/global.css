@@ -58,13 +58,23 @@
     font-style: italic;
 }
 
+/* Make the box-sizing of every element to border box */
 *
 {
     box-sizing: border-box;
 }
 
-/* Mobile Display Style Rule */
-/* ========================= */
+/* Plain text link */
+a
+{
+    color: blue;
+}
+
+/* Plain text link that has been visited */
+a:visited
+{
+    color: blue;
+}
 
 /* The back of the webpage itself */
 body
@@ -75,6 +85,9 @@ body
     font-family: Abel, Barlow, Arial;
     font-size: 1em;
 }
+
+/* Mobile Display Style Rule */
+/* ========================= */
 
 /* The navigation area at the top */
 nav
@@ -157,7 +170,7 @@ nav
     padding-right: 3em;  
 }
 
-/* The list that contains the sign in button */
+/* The list item that contains the sign in button */
 .sidebarNav li.signIn
 {
     margin-top: 1em;
@@ -172,6 +185,7 @@ nav
     background-color: #d9d9d9;
 }
 
+/* The sign-in button itself */
 .sidebarNav li .signInBtn
 {
     background-color: #d9d9d9;
@@ -180,6 +194,13 @@ nav
     border-radius: 15px;
 
     padding: 0.5em;
+}
+
+/* invert the color of the button on hover */
+.sidebarNav li .signInBtn:hover
+{
+    background-color: #000000;
+    color: #d9d9d9;
 }
 
 /* The close icon */
@@ -253,7 +274,7 @@ nav
 
 
 /* The main content area in the body */
-body > main
+main
 {
     margin-left: auto;
     margin-right: auto;
@@ -276,6 +297,7 @@ footer
     font-size: 0.6em;
 }
 
+/* Contact information section in footer */
 .footer__contact
 {
     margin-top: 2em;
@@ -291,9 +313,9 @@ footer
     border-bottom: 0;
     border-left: 0;
     border-right-width: 0.2em;
-    
 }
 
+/* Plain text links in footer area */
 .footer__links
 {
     margin-top: 2em;
@@ -307,6 +329,7 @@ footer
     justify-content: center;
 }
 
+/* Each of the list in the footer area that contain that links */
 .footer__links ul
 {
     list-style-type: none;
@@ -315,6 +338,7 @@ footer
     padding-right: 3em;
 }
 
+/* Each link in the footer area */
 .footer__links li 
 {
     margin-top: 1em;
@@ -323,6 +347,8 @@ footer
     margin-right: 0;
 }
 
+
+/* Remove the underline of the <a> tags in the footer area */
 .footer__links li a
 {   
     text-decoration: none;
@@ -377,8 +403,7 @@ footer
 
         font-size: 1.2em;
 
-        transition: 0s; /* remove any transition effect */
-        
+        transition: 0s; /* remove any transition effect */ 
     }
 
     .sidebarNav li.signIn
@@ -386,7 +411,7 @@ footer
         margin: 0; /* remove the margin above the sign in button on desktop */
     }
 
-     /* make the list item except the close icon become inline-block */
+    /* make the list item except the close icon become inline-block */
     /* this is to display the links horizontally */
     .sidebarNav li:not(.closeButton)
     {
@@ -406,14 +431,16 @@ footer
         padding-top: 0;
         padding-bottom: 0;
         padding-left: 0;
-        padding-right: 1em;
+        padding-right: 0.9em;
     }
 
+    /* The "menu" link that will dropdown the promo link */
     .sidebarNav li .dropdown--promo
     {
         position: relative;
     }
 
+    /* The nested ul that holds the promo link */
     .dropdown--promoContent
     {
         text-indent: 0;
@@ -440,10 +467,10 @@ footer
     .dropdown--promo:hover .dropdown--promoContent
     {
         display: block;
-        color: #000000;
-
+        color: #000000; /* override the platinum text color on hover when the dropdown list is first shown */
     }
 
+    /* bigger font size for footer on desktop */
     footer
     {
         font-size: 1em;
