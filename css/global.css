@@ -70,10 +70,10 @@
 body
 {   
     background-color:#000000;
-    /* setting overflow-x to hidden to prevent any horizontal scrolling */
-    overflow-x: hidden;
-
     margin: 0;
+
+    font-family: Abel, Barlow, Arial;
+    font-size: 1em;
 }
 
 /* The navigation area at the top */
@@ -83,10 +83,7 @@ nav
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
     
-    top: 0;
-
     background-color: #c8b6a6;
     color:#000000;
     padding: 0.5em;
@@ -133,14 +130,16 @@ nav
     /* width is 0 to hide the sidebar, we will use javascript to modify it so that it will be displayed */
     width: 0;
 
-    /* Setting overflow to hidden will allow the content of the navigation bar to be invisible when the width is 0 */
-    /* Because the content will become overflowed and will be visible even when the width is 0 */
-    overflow: hidden;  
+    /* Setting overflow-x to hidden will allow the content of the side navigation bar to be invisible when the width is 0 */
+    /* Because the content will become visible even when the width is 0, as the width is only for the bar itself */
+    overflow-x: hidden;
+    /* overflow-y to scroll to provide a scroll bar for users if they zoomed in while using the side navigation */
+    overflow-y: scroll;
     
     transition: 1.0s;
 }
 
-/* The list item (links) in the side navigation */
+/* The links in the side navigation */
 .sidebarNav li a
 {
     display: inline-block;
@@ -151,17 +150,36 @@ nav
     /* override the default blue colour for <a> */
     color: inherit;
     
+
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: 1em;
     padding-right: 3em;  
 }
 
+/* The list that contains the sign in button */
+.sidebarNav li.signIn
+{
+    margin-top: 1em;
+    text-align: center;
+}
+
 /* Configure the background color to change when the cursor is hovered over for the links in the sidebar */
-/* The close icon is exempted from this through the usage of not selector */
-.sidebarNav li:hover:not(.closeButton) 
+/* The sign in button is exempted from this */
+/* The close icon is exempted from this through javascript */
+.sidebarNav li:not(li.signIn):hover
 {
     background-color: #d9d9d9;
+}
+
+.sidebarNav li .signInBtn
+{
+    background-color: #d9d9d9;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+
+    padding: 0.5em;
 }
 
 /* The close icon */
@@ -178,20 +196,34 @@ nav
     cursor: pointer;
 }
 
-#promo
-{
-    text-indent: 1em;
-}
-
 /* Each horizontal line in the sidebar */
 .sidebarNav hr
 {
-    width: 75%;
+    width: 80%;
     margin-top: 0;
     margin-bottom: 0;
     border-style: solid;
     border-width: 1.5px;
     border-color:#000000;
+}
+
+/* the nested ul that hold the promo link */
+.dropdown--promoContent
+{
+    display: inline-block;
+
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-clip: border-box;
+
+    text-indent: 1em;
+}
+
+/* use a different colour to highlight the promo link when mouse is hovered over it */
+.sidebarNav li .dropdown--promoContent li:hover
+{
+    background-color: #f1dec9;
 }
 
 
@@ -221,28 +253,79 @@ nav
 
 
 /* The main content area in the body */
-.content
+body > main
 {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
     padding-bottom: 30em; /* A placeholder to show the area of the main content, should be removed later */
     background-color: #a4907c;
-
-    font-family: Abel, Barlow, Arial;
-    
 }
 
 /* The footer area */
 footer
 {   
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     
     background-color: #c8b6a6;
-    padding-bottom: 10em; /* Placeholder to show the area of the footer */
     width: 100%;
 
-    font-size: 0.5em;
+    font-size: 0.6em;
+}
+
+.footer__contact
+{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 0;
+    padding-right: 5em;
+
+    border-style: dashed;
+
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-right-width: 0.2em;
+    
+}
+
+.footer__links
+{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 0;
+    padding-right: 0;
+
+    display: inline-flex;
+    justify-content: center;
+}
+
+.footer__links ul
+{
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.footer__links li 
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.footer__links li a
+{   
+    text-decoration: none;
 }
 
 /* For desktop display */
@@ -252,12 +335,16 @@ footer
 {
     nav
     {
+        /* make the navigation bar stick at the top on desktop display */
+        position: sticky;
+        top: 0;
+
         /* change to justify-content to flex-start, the other alignment will follow what was defined */
         justify-content: flex-start;
     }
 
     /* The cafe logo */
-    nav > a > img
+    nav a img
     {
         /* set margin-right to auto will push the logo to the right as menu and the empty div are set to display: none */
         margin-right: auto;
@@ -274,7 +361,7 @@ footer
 
     .sidebarNav
     {
-        margin-left: auto;
+        margin-left: auto; /* margin-left to auto will push the list of links to the right */
         position: static; /* the default value, so that the links will be in the normal flow */
         width: fit-content; /* "Unhide" the navigation links */
         height: fit-content;
@@ -284,23 +371,30 @@ footer
         padding-left: 0;
         padding-right: 5em;
 
-        display: inline; /* make the list of links become inline */
+        display: inline; /* make the list become inline */
 
         border-style: none;
+
+        font-size: 1.2em;
 
         transition: 0s; /* remove any transition effect */
         
     }
 
-    /* make the list item (links) except the close icon become inline */
+    .sidebarNav li.signIn
+    {
+        margin: 0; /* remove the margin above the sign in button on desktop */
+    }
+
+     /* make the list item except the close icon become inline-block */
     /* this is to display the links horizontally */
     .sidebarNav li:not(.closeButton)
     {
-        display: inline;
+        display: inline-block;
     }
 
     /* make the text color change on hover instead of the whole background on desktop display */
-    .sidebarNav li:not(.closeButton):hover
+    .sidebarNav li:not(li.signIn):hover
     {
         background-color: #c8b6a6;
         color: #d9d9d9;
@@ -315,12 +409,44 @@ footer
         padding-right: 1em;
     }
 
-    #promo
+    .sidebarNav li .dropdown--promo
     {
-        display: none;
         position: relative;
-        background-color:#d9d9d9;
     }
 
-    
+    .dropdown--promoContent
+    {
+        text-indent: 0;
+        display: none;
+        position: absolute;
+
+        width: 150px;
+        height: fit-content;
+        background-color: #c8b6a6;
+        box-shadow: 0px 5px 8px #000000;
+        
+        margin: 0;
+        padding: 0.5em;
+        z-index: 1;
+
+    }
+
+    /* change the background color once the drop down content is hovered over */
+    .sidebarNav li .dropdown--promoContent li:hover
+    {
+        background-color: #c8b6a6;
+    }
+
+    .dropdown--promo:hover .dropdown--promoContent
+    {
+        display: block;
+        color: #000000;
+
+    }
+
+    footer
+    {
+        font-size: 1em;
+    }
+
 }

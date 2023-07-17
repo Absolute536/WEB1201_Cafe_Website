@@ -21,7 +21,7 @@ function openNav()
 {
     // width of the sidebar navigation is set to a static px value //
     // this is to prevent the content from shifting when the viewport is larger //
-    // the sidebar will only be used on mobile display, so a static value is fine //
+    // the sidebar will only be used on smaller (mobile) display, so a static value is fine //
     document.getElementById("sidebarNav").style.width = "150px";
 }
 
