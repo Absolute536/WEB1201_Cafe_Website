@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Daily Cafe | Menu</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/global.css">
+
+        <script src="scripts/global.js"></script>
+
+        <style>
+
+            main
+            {
+                padding-top: 1em;
+                padding-bottom: 1em;
+
+                background-image: linear-gradient(#8d7b68, #a4907c, #c8b6a6, #f1dec9);
+            }
+
+            td, th
+            {
+                padding: 0.5em;
+            }
+
+            td:first-child
+            {
+                padding-right: 8em;
+            }
+
+            h3
+            {
+                text-align: center;
+            }
+            .menu
+            {
+                margin-left: auto;
+                margin-right: auto;
+                
+                width: 90%;
+                height: 90%;
+                padding-bottom: 5em;
+
+                background-image: url(images/photos/Brown_Textured_Background.jpg);
+                background-color: cover;
+                box-shadow: 0px 5px 10px #000000;
+            }
+
+            .menu__heading h1, h2
+            {
+                text-align: center;
+                font-family: Noto-serif, "Libre Baskerville", Georgia;
+                font-weight: bold;
+                margin: 0;
+                padding: 0.5em;
+            }
+
+            .menu__promo--link img
+            {
+                width: 100%;
+                height: auto;
+                border-style: ridge;
+                border-color: #d9d9d9;
+                border-width: 5px;
+            }
+
+            .menu__section
+
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .menu__section--list
+            {
+                border-style: solid;
+                border-color: #000000;
+                border-width: 1px;
+                background-color: #c8b6a6;
+
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            .menu__section--gallery
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+
+            .menu__gallery--images
+            {
+                flex: 50%;
+                max-width: 50%;
+                margin: 0;
+            }
+
+            .menu__gallery--images img
+            {
+                width: 100%;
+                display: inline-block;
+                border-style: double;
+                border-color: #000000;
+                border-width: 2px;
+                box-shadow: 0px 0px 8px #f1dec9;
+            }
+
+            .menu hr
+            {
+                border-top-style: solid;
+                border-top-width: 3px;
+                border-top-color: #000000;
+                width: 90%;
+            }
+
+            .menu__section--twocolumn
+            {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .menu__section--subcolumn
+            {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                flex: 50%;
+            }
+
+            
+            @media screen and (min-width: 768px)
+            {
+                .menu__heading
+                {
+                    font-size: 2.5em;
+                }
+
+                .menu__section--list
+                {
+                    font-size: 1.5em;
+                }
+
+                .menu__section--cold
+                {
+                    flex-direction: row-reverse;
+                }
+
+                .menu__section--sandwich .menu__section--list
+                {
+                    width: 90%;
+                }
+            }
+        </style>
+    </head>
+
+    <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
+    <body onresize="responsiveNav();">
+        
+        <nav>
+            <div class="menuButton" onclick="openNav();">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="index.html">
+                <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
+            </a>
+
+            <ul class="sidebarNav" id="sidebarNav">
+                <!--The close button/icon is represented by a multiplication sign (cross)-->
+                <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">
+                    &times;
+                </li>
+
+                <li>
+                    <a href="index.html">Home</a>
+                    <br>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="contact.html">Contact</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li class="dropdown--promo">
+                    <a href="menu.html">Menu</a>
+                    <br>
+                    <!-- Inline style is used to style one particular hr as dashed -->
+                    <hr style="border-style: dashed;"> 
+                    <ul class="dropdown--promoContent">
+                        <li>
+                            <a href="promo.html">Promo</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="order.html">Order</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+
+                <li class="signIn">
+                    <a href="sign-in.html" class="signInBtn">Sign In</a>
+                </li>
+            </ul>
+            
+            <!--This is an empty div that is used to center other flex items in the nav bar-->
+            <div class="nav__div--empty"></div>
+        </nav>
+
+        <!--The main content of the page-->
+        <main>
+            <div class="menu">
+                <div class="menu__heading">
+                    <h1>Menu</h1>
+                </div>
+
+                <div class="menu__promo--link">
+                    <a href="promo.html"><img src="images/posters/promoLink.png" width="100" height="10" alt="A picture that links to promo page"></a>
+                </div>
+
+                
+                <div class="menu__section">
+                    <div class="menu__section--list">
+                        <h2 style="text-align: center;">Hot Coffee</h2>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Regular</th>
+                                <th>Large</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>Black</td>
+                                <td>4.50</td>
+                                <td>5.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Espresso</td>
+                                <td>4.00</td>
+                                <td>4.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Americano</td>
+                                <td>4.00</td>
+                                <td>4.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Latte</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mocha</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cappuccino</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Macchiato</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Flat White</td>
+                                <td>4.70</td>
+                                <td>5.20</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cafe au Lait</td>
+                                <td>5.30</td>
+                                <td>5.80</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="menu__section--gallery">
+                        <div class="menu__gallery--images">
+                            <img src="images/photos/Americano.jpg" width="150" height="150" alt="The picture of an Americano">
+                            <img src="images/photos/Black_Coffee.jpg" width="150" height="150" alt="The picture of a Black Coffee"> 
+                        </div>
+                        <div class="menu__gallery--images">
+                            <img src="images/photos/Cappuccino.jpg" width="150" height="150" alt="The picture of a Cappuccino">
+                            <img src="images/photos/Latte.jpg" width="150" height="150" alt="The picture of a Latte">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="menu__section">
+                    <div class="menu__section--list">
+                        <h2 style="text-align: center;">Iced Coffee</h2>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Regular</th>
+                                <th>Large</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>Latte</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cappuccino</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Americano</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Macchiato</td>
+                                <td>5.00</td>
+                                <td>5.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Mocha</td>
+                                <td>5.50</td>
+                                <td>6.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Frappuccino</td>
+                                <td>6.00</td>
+                                <td>6.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Nitro cold</td>
+                                <td>7.00</td>
+                                <td>7.50</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="menu__section--gallery">
+                        <div class="menu__gallery--images">
+                            <img src="images/photos/Iced_Coffee1.jpg" width="150" height="150" alt="The picture of an Americano">
+                            <img src="images/photos/Iced_Coffee2.jpg" width="150" height="150" alt="The picture of a Black Coffee"> 
+                        </div>
+                        <div class="menu__gallery--images">
+                            <img src="images/photos/Iced_Latte.jpg" width="150" height="150" alt="The picture of a Cappuccino">
+                            <img src="images/photos/Iced_Cappuccino.jpg" width="150" height="150" alt="The picture of a Latte">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="menu__section--twocolumn">
+                    <div class="menu__section--subcolumn">
+                        <div class="menu__section--list">
+                            <h2 style="text-align: center;">Tea</h2>
+                            <h3 style="text-align: center; font-size: 1em; font-weight: normal;">&ast;(per pot)</h3>
+                            <table>
+                                <tr>
+                                    <td>English Breakfast</td>
+                                    <td>5.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Earl Grey</td>
+                                    <td>6.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Peppermint</td>
+                                    <td>5.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Charmomile</td>
+                                    <td>5.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Green</td>
+                                    <td>5.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Matcha</td>
+                                    <td>7.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Fruit tea</td>
+                                    <td>6.50</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="menu__section--gallery">
+                            <div class="menu__gallery--images">
+                                <img src="images/photos/English_Breakfast_Tea.jpg" width="200" height="150" alt="The picture of the classic English Breakfast Tea">
+                            </div>
+                            <div class="menu__gallery--images">
+                                <img src="images/photos/Matcha.jpg" width="200" height="150" alt="The picture of a Japanese Matcha">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu__section--subcolumn">
+                        <div class="menu__section--list">
+                            <h2 style="text-align: center;">Others</h2>
+                            <table>
+                                <tr>
+                                    <td>Hot Chocolate</td>
+                                    <td>4.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Iced Chocolate</td>
+                                    <td>5.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Orange Juice</td>
+                                    <td>5.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Apple Juice</td>
+                                    <td>5.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Watermelon Juice</td>
+                                    <td>5.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Steamed Milk</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Coca-Cola (canned)</td>
+                                    <td>2.50</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sprite (canned)</td>
+                                    <td>2.50</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="menu__section--gallery">
+                            <div class="menu__gallery--images">
+                                <img src="images/photos/Hot_Chocolate2.jpg" width="150" height="150" alt="The picture of a cup of hot chocolate">
+                            </div>
+                            <div class="menu__gallery--images">
+                                <img src="images/photos/Orange_Juice.jpg" width="150" height="150" alt="The picture of a glass of orange juice">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="menu__section">
+                    <div class="menu__section--list" style="padding: 0.3em;">
+                        <h2>Sandwiches</h2>
+                    </div>
+                    <div class="menu__section--list" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; justify-items: center; width: 90%;">
+                        <table style="flex: 50%;">
+                            <tr>
+                                <th colspan="3" style="text-decoration: underline;">Simple</th>
+                            </tr>
+
+                            <tr>
+                                <td>Egg</td>
+                                <td>4.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Tuna</td>
+                                <td>4.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Ham & Cheese</td>
+                                <td>4.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Kaya & Butter</td>
+                                <td>3.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Peanut Butter & Jam </td>
+                                <td>4.00</td>
+                            </tr>
+                        </table>
+
+                        <table style="flex: 50%;">
+                            <tr>
+                                <th colspan="3" style="text-decoration: underline;">Gourment</th>
+                            </tr>
+
+                            <tr>
+                                <td>Club Sandwich</td>
+                                <td>6.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Crispy Chicken</td>
+                                <td>6.50</td>
+                            </tr>
+
+                            <tr>
+                                <td>Grilled Cheese</td>
+                            <td>6.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Waffle Sandwich</td>
+                                <td>5.50</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="menu__section--twocolumn">
+                    <div class="menu__section--subcolumn">
+                        <div class="menu__section--list">
+                            <h2>Pastries</h2>
+                            <table>
+                                <tr>
+                                    <td>Croissant</td>
+                                    <td>3.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Pain au Chocolat</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Cinnamon Roll</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Blueberry Tart</td>
+                                    <td>3.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Lemon Tart</td>
+                                    <td>3.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Cheese Tart</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Apple Pie</td>
+                                    <td>6.00</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="menu__section--gallery">
+                            <div class="menu__gallery--images" style="flex: 100%; max-width: 100%;">
+                                <img src="images/photos/Croissant.jpg" width="150" height="150" alt="The picture of the classic English Breakfast Tea">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu__section--subcolumn">
+                        <div class="menu__section--list">
+                            <h2 style="text-align: center;">Cakes</h2>
+                            <h3 style="text-align: center; font-size: 1em; font-weight: normal;">&ast;(per slice)</h3>
+                            <table>
+                                <tr>
+                                    <td>Chocolate Cake</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Fruit Cake</td>
+                                    <td>4.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Cheese Cake</td>
+                                    <td>5.00</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Red Velvet</td>
+                                    <td>4.50</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>Tiramisu</td>
+                                    <td>5.00</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="menu__section--gallery">
+                            <div class="menu__gallery--images" style="flex: 100%; max-width: 100%;">
+                                <img src="images/photos/Chocolate_Cake.jpg" width="150" height="150" alt="The picture of a cup of hot chocolate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <!--Address information-->
+            <div class="footer__contact">
+                <img src="images/icons/cafeLogo.png" width="50" height="50" alt="The logo of the cafe" style="vertical-align: middle ;">
+                <b>Daily Cafe</b>
+                <br>
+                <br>
+                5, Jalan Malinda,
+                <br>
+                47300 Petaling Jaya,
+                <br>
+                Kuala Lumpur,
+                <br>
+                Malaysia.
+                <br>
+                <br>
+                +6013-7980536 (Contact Number)
+                <br>
+                <br>
+                dailycafe123@gmail.com
+                <br>
+                <br>
+                <span style="font-size:0.5em; font-style: italic;">Copyright &copy; 2023 dailycafe</span>
+            </div>
+
+            <!--Links in footer-->
+            <div class="footer__links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <br>
+                </ul>
+
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="promo.html">Promo</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+
+</html>

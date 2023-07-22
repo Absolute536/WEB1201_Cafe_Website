@@ -96,6 +96,14 @@ nav
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    /* make the navigation bar stick at the top */
+    position: sticky;
+    top: 0;
+
+    border-bottom-width: 1px;
+    border-bottom-color: #000000;
+    border-bottom-style: solid;
     
     background-color: #c8b6a6;
     color:#000000;
@@ -361,10 +369,6 @@ footer
 {
     nav
     {
-        /* make the navigation bar stick at the top on desktop display */
-        position: sticky;
-        top: 0;
-
         /* change to justify-content to flex-start, the other alignment will follow what was defined */
         justify-content: flex-start;
     }
