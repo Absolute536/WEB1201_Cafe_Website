@@ -69,7 +69,6 @@
             }
 
             .menu__section
-
             {
                 display: flex;
                 flex-direction: row;
@@ -174,7 +173,7 @@
     </head>
 
     <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
-    <body onresize="responsiveNav();">
+    <body onresize="responsiveNav();" onload="initialiseValues()">
         
         <nav>
             <div class="menuButton" onclick="openNav();">
@@ -235,7 +234,7 @@
                 </li>
 
                 <li class="signIn">
-                    <a href="sign-in.html" class="signInBtn">Sign In</a>
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
                 </li>
             </ul>
             
@@ -335,7 +334,7 @@
 
                 <hr>
 
-                <div class="menu__section">
+                <div class="menu__section menu__section--cold">
                     <div class="menu__section--list">
                         <h2 style="text-align: center;">Iced Coffee</h2>
                         <table>

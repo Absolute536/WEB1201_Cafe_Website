@@ -49,7 +49,7 @@
             function validateForm(evt)
             {
                 let x = document.forms["orderForm"]["time"].value;
-                if (x > "17:00")
+                if ((x > "17:00") || (x < "09:00"))
                 {   
                     evt.preventDefault();
                     return alert("The booking time is invalid");
@@ -131,7 +131,7 @@
 
                 input
                 {
-                    height: 150%;
+                    font-size: 1em;
                 }
 
                 label
@@ -144,8 +144,7 @@
     </head>
 
     <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
-    <body onresize="responsiveNav();">
-        
+    <body onresize="responsiveNav();" onload="initialiseValues()">
         <nav>
             <div class="menuButton" onclick="openNav();">
                 <div></div>
@@ -205,7 +204,7 @@
                 </li>
 
                 <li class="signIn">
-                    <a href="sign-in.html" class="signInBtn">Sign In</a>
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
                 </li>
             </ul>
             
@@ -245,11 +244,15 @@
                     <h2>Instructions:</h2>
                     <ol>
                         <li>Fill up the form below then click "Book Now" to book a table.</li>
-                        <li>Note that the last booking time is at 5:00pm everyday.</li>
-                        <li>Any online booking after 5:00pm is automatically invalid.</li>
+                        <li>Please give the time in 24:00 hrs format.</li>
+                        <li>The earliest booking time starts from 9.00am everyday.</li>
+                        <li>The last booking time ends at 5:30pm everyday.</li>
+                        <li>Any online booking after 5:30pm is automatically invalid.</li>
                         <li>Please leave any special instructions below in the "Comments" box.</li>
+                        <li>Note thet online booking is only valid for table reservations.</li>
+                        <li>For event reservations, please get in touch with the cafe manually to discuss about the details.</li>
                         <li>Please make sure the phone number is valid.</li>
-                        <li>A cafe staff will call the phone number submitted in the booking form within 15 minutes of form submission to confirm your booking.</li>
+                        <li>A cafe staff will call the phone number submitted in the booking form within 15 minutes of form submission to verify details of your booking.</li>
                     </ol>
                 </div>
                 <form name="orderForm" onsubmit="return validateForm(event)">
@@ -267,8 +270,8 @@
                         <label for="time" style="grid-column: 2 / 3; grid-row: 5 / 6">Time:</label>
                         <input type="time" id="time" name="time" required style="grid-column: 2 / 3; grid-row: 6 / 7;">
                     
-                        <label for="person-number" style="grid-column: 1 / 2; grid-row: 7 / 8;">Number of Person (Max 6):</label>
-                        <input type="number" id="person-number" required name="person-number" min="1" max="6" style="grid-column: 1 / 2; grid-row: 8 / 9;">
+                        <label for="person-number" style="grid-column: 1 / 2; grid-row: 7 / 8;">Number of Person (Max 8):</label>
+                        <input type="number" id="person-number" required name="person-number" min="1" max="8" style="grid-column: 1 / 2; grid-row: 8 / 9;">
 
                         <label for="phone" style="grid-column: 2 / 3; grid-row: 7 / 8;">Phone Number (xxx-xxxxxxx):</label>
                         <input type="tel" id="phone" name="phone" required placeholder="123-1234567" pattern="[0-9]{3}-[0-9]{7}" style="grid-column: 2 / 3; grid-row: 8 / 9;">

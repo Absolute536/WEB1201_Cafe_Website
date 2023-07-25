@@ -3,7 +3,7 @@
 <html lang="en">
 
     <head>
-        <title>Daily Cafe | Home</title>
+        <title>Daily Cafe | Daily Cafe</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,46 +11,85 @@
         <link rel="stylesheet" href="css/global.css">
 
         <script src="scripts/global.js"></script>
-        <style>
-            header
+
+        <script>
+            function signInMsg()
             {
-                margin-left: auto;
-                margin-right: auto;
-                width: 90%;
-                height: 100%;
+                alert("Sign In Successfully.");
 
-                padding-top: 2em;
-                padding-bottom: 2em;
-                padding-left: 3em;
-                padding-right: 3em;
-                
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/photos/Home_Hero.jpg);
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
+                var name;
 
-                color: #ffffff;
-                font-family: Noto-serif, "Libre Baskerville", Georgia;
-                font-weight: bold;
-                font-size: 1.5em;
-                text-align: center;
+                name = document.forms["signInForm"]["username"].value;
+
+                sessionStorage.setItem("username", name);
             }
+        </script>
+
+        <style>
+            .signIn__heading
+            {
+                text-align: center;
+                padding: 0.5em;
+            }
+
+            .signIn__heading h1
+            {
+                font-family: Noto-serif, "Libre Baskerville", Georgia;
+            }
+
+            .signIn__section
+            {
+                background-color: #c8b6a6;
+                padding: 1em;
+            }
+
+            form
+            {
+                border-width: 2px;
+                border-color: #d9d9d9;
+                border-style: inset;
+                background-color: #f1dec9;
+                padding: 0.5em;
+                box-shadow: 0px 5px 10px #000000;
+            }
+
+            input[name="signIn--btn"]
+            {
+                width: 100%;
+                background-color: #c8b6a6;
+                border-style: none;
+
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+
+                cursor: pointer;
                 
+            }
+
+            input[name="signIn--btn"]:hover
+            {
+                background-color: #a4907c;
+            }
 
             @media screen and (min-width: 768px)
             {
-                header
+                main
                 {
-                    font-size: 4.5em;
-                    
+                    font-size: 1.5em;
+                }
+
+                input
+                {
+                    font-size: inherit;
                 }
             }
         </style>
     </head>
 
     <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
-    <body onresize="responsiveNav();">
-        
+    <body onresize="responsiveNav();" onload="initialiseValues()">
         <nav>
             <div class="menuButton" onclick="openNav();">
                 <div></div>
@@ -110,26 +149,43 @@
                 </li>
 
                 <li class="signIn">
-                    <a href="sign-in.html" class="signIn--link">Sign In</a>
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
                 </li>
             </ul>
             
             <!--This is an empty div that is used to center other flex items in the nav bar-->
-            <div class="nav__div--empty"></div>
+            <div class="nav__div--empty" id="nav__div--empty"></div>
         </nav>
-
-        <!--The header of the page-->
-        <header>
-            <div>
-                Daily cafe
-                <br>
-                <span style="font-size: 0.2em; font-style: italic; font-weight: normal;">Best coffee in town</span>
-            </div>
-        </header>
 
         <!--The main content of the page-->
         <main>
-            
+            <div class="signIn__heading">
+                <h1>Sign In</h1>
+            </div>
+
+            <div class="signIn__section">
+                <form name="signInForm" onsubmit="return signInMsg()">
+                    <div style="display: grid; grid-template-columns: auto auto; row-gap: 0.5em;">
+                        <label for="username" style="grid-column: 1 / 3; grid-row: 1 / 2">Username:</label>
+                        <input type="text" name="username" id="username" required placeholder="Enter Username" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                    
+                        <label for="password" style="grid-column: 1 / 3; grid-row: 3 / 4;">Password:</label>
+                        <input type="password" name="password" id="password" required placeholder="Enter Password" style="grid-column: 1 / 3; grid-row: 4 / 5">
+                        <br>   
+                    </div>
+
+                    <input type="checkbox" name="rmbme" id="rmbme">
+                    <label for="rmbme">Remember Me</label>
+                    <br>
+
+                    <input type="submit" value="Sign In" name="signIn--btn" id="signIn--btn">
+                    <br>
+                    <div style="font-size: 0.7em; font-style: italic; text-align: right;">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                </form>
+            </div>
         </main>
 
         <footer>

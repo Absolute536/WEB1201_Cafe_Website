@@ -47,4 +47,55 @@ function responsiveNav()
     
 }
 
+function initialiseValues()
+{
+    sessionStorage.setItem("sign-in", "Sign In");
+    sessionStorage.setItem("sign-out", "Sign Out");
 
+    if (sessionStorage.getItem("username") == null)
+    {
+        document.getElementById("signIn--link").innerHTML = sessionStorage.getItem("sign-in");
+    }
+    else
+    {
+        document.getElementById("signIn--link").innerHTML = sessionStorage.getItem("username");
+    }
+}
+
+function usernameFadeIn()
+{
+    var signInLink; 
+    signInLink = document.getElementById("signIn--link");
+
+    if (signInLink.innerHTML != "Sign In")
+    {
+        signInLink.innerHTML = sessionStorage.getItem("sign-out");
+    }
+
+    signInLink.addEventListener("mouseout", usernameFadeOut);
+}
+
+function usernameFadeOut()
+{
+    var signInLink;
+    signInLink = document.getElementById("signIn--link");
+
+    if (signInLink.innerHTML == "Sign Out")
+    {
+        signInLink.innerHTML = sessionStorage.getItem("username");
+    }
+}
+
+function logOut(evt)
+{
+    var signInLink;
+    signInLink = document.getElementById("signIn--link");
+
+    if (signInLink.innerHTML == "Sign Out")
+    {
+        signInLink.innerHTML = sessionStorage.getItem("sign-in");
+        sessionStorage.removeItem("username");
+
+        evt.preventDefault();
+    }
+}
