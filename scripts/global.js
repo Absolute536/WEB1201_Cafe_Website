@@ -49,12 +49,12 @@ function responsiveNav()
 
 function initialiseValues()
 {
-    sessionStorage.setItem("sign-in", "Sign In");
-    sessionStorage.setItem("sign-out", "Sign Out");
+    //sessionStorage.setItem("sign-in", "Sign In");
+    //sessionStorage.setItem("sign-out", "Sign Out");
 
     if (sessionStorage.getItem("username") == null)
     {
-        document.getElementById("signIn--link").innerHTML = sessionStorage.getItem("sign-in");
+        document.getElementById("signIn--link").innerHTML = "Sign In";
     }
     else
     {
@@ -69,7 +69,7 @@ function usernameFadeIn()
 
     if (signInLink.innerHTML != "Sign In")
     {
-        signInLink.innerHTML = sessionStorage.getItem("sign-out");
+        signInLink.innerHTML = "Sign Out";
     }
 
     signInLink.addEventListener("mouseout", usernameFadeOut);
@@ -93,7 +93,7 @@ function logOut(evt)
 
     if (signInLink.innerHTML == "Sign Out")
     {
-        signInLink.innerHTML = sessionStorage.getItem("sign-in");
+        signInLink.innerHTML = "Sign In";
         sessionStorage.removeItem("username");
 
         evt.preventDefault();

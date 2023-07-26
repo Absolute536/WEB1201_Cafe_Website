@@ -49,7 +49,7 @@
     </head>
 
     <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
-    <body onresize="responsiveNav();">
+    <body onresize="responsiveNav();" onload="initialiseValues()">
         
         <nav>
             <div class="menuButton" onclick="openNav();">
@@ -110,7 +110,7 @@
                 </li>
 
                 <li class="signIn">
-                    <a href="sign-in.html" class="signIn--link">Sign In</a>
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
                 </li>
             </ul>
             
