@@ -49,7 +49,7 @@
             function validateForm(evt)
             {
                 let x = document.forms["orderForm"]["time"].value;
-                if ((x > "17:00") || (x < "09:00"))
+                if ((x > "17:30") || (x < "09:00"))
                 {   
                     evt.preventDefault();
                     return alert("The booking time is invalid");
