@@ -19,8 +19,8 @@
                 width: 90%;
                 height: 100%;
 
-                padding-top: 2em;
-                padding-bottom: 2em;
+                padding-top: 8em;
+                padding-bottom: 8em;
                 padding-left: 3em;
                 padding-right: 3em;
                 
@@ -30,20 +30,368 @@
                 background-repeat: no-repeat;
 
                 color: #ffffff;
-                font-family: Noto-serif, "Libre Baskerville", Georgia;
-                font-weight: bold;
                 font-size: 1.5em;
+                font-weight: bold;
                 text-align: center;
             }
+            
+            header h1
+            {
+                margin: 0;
+                padding: 0;
+            }
+
+            main
+            {
+                display: grid;
+                grid-template-columns: auto;
+
+                padding-bottom: 2em;
+            }
+
+            main img
+            {
+                width: 100%;
+                height: auto;
+            }
+
+            .home__banner
+            {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+
+            .home__feature--photo1
+            {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+            
+            .home__feature--desc1, .home__feature--desc2, .home__feature--desc3, .home__cta--menu, .home__cta--promo
+            {
+                background-color: #c8b6a6;
+                padding: 1em;
+                margin-top: -0.3em; /* Removing the tiny gap between each row (kinda hard code for this) */
+                text-align: center;
+                list-style-position: inside;
+            }
+
+            .home__feature--desc1
+            {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .home__feature--desc2
+            {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+            }
+
+            .home__feature--photo2
+            {
+                grid-column: 1 / 2;
+                grid-row: 5 / 6;
+            }
+
+            .home__feature--desc3
+            {
+                grid-column: 1 / 2;
+                grid-row: 6 / 7;
+            }
+
+            .home__feature--photo3
+            {
+                grid-column: 1 / 2;
+                grid-row: 7 / 8;
+            }
+
+            .home__cta--about
+            {
+                grid-column: 1 / 2;
+                grid-row: 8 / 9;
+
+                margin-top: -0.3em;
+                padding: 1em;
+
+                border-style: inset;
+                border-width: 2px;
+                border-color: #ffffff;
+
+                text-align: center;
+                color: #ffffff;
+
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(images/photos/Home_About_CTA.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+
+            .home__cta--menu
+            {
+                grid-column: 1 / 2;
+                grid-row: 9 / 10;
+            }
+
+            .home__cta--promo
+            {
+                grid-column: 1 / 2;
+                grid-row: 10 / 11;
+            }
+
+            .home__cta--menu, .home__cta--promo
+            {
+                margin-top: 1em;
+            }
+
+            .home__cta--about a, .home__cta--menu a, .home__cta--promo a
+            {
+                display: inline-block;
+
+                background-color: #d9d9d9;
+                padding: 0.5em;
+
+                margin: 1em;
+
+                color: #000000;
+                text-decoration: none;
+            }
+
+            .home__cta--about a:hover, .home__cta--menu a:hover, .home__cta--promo a:hover
+            {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+                box-shadow: 0px 5px 15px #000000;
+            }
+            
+            .home__gallery
+            {
+                grid-column: 1 / 2;
+                grid-row: 11 / 12;
+
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+                column-gap: 0.5em;
+
+                padding: 0.5em;
                 
+                text-align: center;
+            }
+
+            .home__gallery img
+            {
+                width: 100%;
+                height: 80%;
+                object-fit: fill;
+
+                margin: 0;
+
+                border-style: soild;
+                border-color: #000000;
+                border-width: 1px;
+                box-shadow: 0px 0px 10px #f1dec9;
+            }
+
+            .home__gallery--subhead
+            {
+                grid-column: 1 / 5; 
+                grid-row: 1 / 2;
+            }
+
+            .img1
+            {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .img2
+            {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+            }
+
+            .img3
+            {
+                grid-column: 1 / 2;
+                grid-row: 4 / 5;
+            }
+
+            .img4
+            {
+                grid-column: 1 / 2;
+                grid-row: 5 / 6;
+            }
+
+            .img5
+            {
+                grid-column: 4 / 5;
+                grid-row: 2 / 3;
+            }
+
+            .img6
+            {
+                grid-column: 4 / 5; 
+                grid-row: 3 / 4;
+            }
+
+            .img7
+            {
+                grid-column: 4 / 5;
+                grid-row: 4 / 5;
+            }
+
+            .img8
+            {
+                grid-column: 4 / 5;
+                grid-row: 5 / 6;
+            }
 
             @media screen and (min-width: 768px)
             {
                 header
                 {
-                    font-size: 4.5em;
-                    
+                    padding-top: 10em;
+                    padding-bottom: 10em;
+
+                    font-size: 2.5em;
                 }
+
+                main
+                {
+                    font-size: 1.5em;
+
+                    grid-template-columns: auto auto;
+                }
+
+                .home__banner
+                {
+                    grid-column: 1 / 3;
+                    grid-row: 1 / 2;
+                }
+
+                .home__feature--desc1
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+
+                .home__feature--photo1
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+
+                .home__feature--photo1 img, .home__feature--photo2 img, .home__feature--photo3 img
+                {
+                    margin-top: -0.3em;
+
+                    height: 100%;
+                    object-fit: fill;
+                }
+
+                .home__feature--desc2
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 3 / 4;
+                }
+
+                .home__feature--photo2
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 3 / 4;
+                }
+
+                .home__feature--photo2 img
+                {
+                    margin-top: -0.3em;
+                }
+
+                .home__feature--desc3
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 4 / 5;
+                }
+
+                .home__feature--photo3
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 4 / 5;
+                }
+
+                .home__cta--about
+                {
+                    grid-column: 1 / 3;
+                    grid-row: 5 / 6;
+                }
+
+                .home__cta--menu
+                {   
+                    margin: 1em;
+
+                    grid-column: 1 / 2;
+                    grid-row: 6 / 7;
+                }
+
+                .home__cta--promo
+                {
+                    margin: 1em;
+
+                    grid-column: 2 / 3;
+                    grid-row: 6 / 7;
+                }
+
+                .home__gallery
+                {
+                    grid-column: 1 / 3;
+                    grid-row: 7 / 8;
+                }
+
+                .img1
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+
+                .img2
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+
+                .img3
+                {
+                    grid-column: 3 / 4;
+                    grid-row: 2 / 3;
+                }
+
+                .img4
+                {
+                    grid-column: 4 / 5;
+                    grid-row: 2 / 3;
+                }
+
+                .img5
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 3 / 4;
+                }
+
+                .img6
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 3 / 4;
+                }
+
+                .img7
+                {
+                    grid-column: 3 / 4;
+                    grid-row: 3 / 4;
+                }
+
+                .img8
+                {
+                    grid-column: 4 / 5;
+                    grid-row: 3 / 4;
+                }
+
             }
         </style>
     </head>
@@ -121,15 +469,114 @@
         <!--The header of the page-->
         <header>
             <div>
-                Daily cafe
-                <br>
-                <span style="font-size: 0.2em; font-style: italic; font-weight: normal;">Best coffee in town</span>
+                <h1>Daily cafe</h1>
+                <span style="font-size: 0.3em; font-style: italic; font-weight: normal;">Best coffee in town</span>
             </div>
         </header>
 
         <!--The main content of the page-->
         <main>
-            
+            <div class="home__banner">
+                <img src="images/posters/banner.png" width="400" height="100" alt="The banner of the cafe">
+            </div>
+
+            <div class="home__feature--desc1">
+                <h2>Quality Ingredients</h2>
+                <br>
+                <p>
+                    From Tea to Coffee, Our cafe uses the most premium ingredeitns to serve you a rich beverage. <br>
+                    Quality doesn't necessarily mean the most expensive, but it does focus in on the freshness of your food. <br> 
+                    The definition of “fresh” ingredients generally refers to ingredients that have never been frozen,and can therefore provide maximum flavor.
+                    <br>
+                    <br>
+                    <span style="text-decoration: underline;">Famous ingredients used</span>
+                </p>
+
+                <ul style="padding: 0;">
+                    <li>Flavourings & Toppings</li>
+                    <li>Milk & Cream Products</li>
+                    <li>Sugar & Sweeteners</li>
+                    <li>Syrups</li>
+                    <li>Sauces</li>
+                    <li>Toppings</li>
+                </ul>
+            </div>
+
+            <div class="home__feature--photo1">
+                <img src="images/photos/Home_feature1_Freshly_Brewed.jpg" width="300" height="300" alt="A photo showing the action of freshly brewed coffee">
+            </div>
+
+            <div class="home__feature--desc2">
+                <h2>Aesthetics Of Our Place</h2>
+                <br>
+                <p>
+                    Daily Cafe (also known as Café) is an aesthetic that relates to the qualities of a café. <br>
+                    It commonly incorporates the warm or neutral color blends, calm settings, warm lighting. <br>
+                    The aesthetic elements should complement the style of the interior and should make the customer comfortable 
+                    enough to occupy or move around the space.
+                </p>
+            </div>
+
+            <div class="home__feature--photo2">
+                <img src="images/photos/Home_feature2_Calm_Atmosphere.jpg" width="300" height="300" alt="A photo depicting the aesthetic of the cafe">
+            </div>
+
+            <div class="home__feature--desc3">
+                <h2>Daily Pastries</h2>
+                <br>
+                <p>
+                    Daily Cafe houses a variety of pastries that are baked and sourced daily from a local pastry shop.<br>
+                    From the common croissant to the more exquisite filled croissants, such as the Pain au Chocolat, Daily Cafe has it all!<br>
+                    Despite the wide array of pastries available, Daily Cafe did not compromise on the quality of the items.<br>
+                    Every piece of pastry is guaranteed to be fresh as we do not provide any unsold ones from another day.<br>
+                    So please rest assured and come indulge yourself in those delicious and aromatic croissants.
+                </p>
+            </div>
+
+            <div class="home__feature--photo3">
+                <img src="images/photos/Home_feature3_Daily_Pasrty.jpg" width="300" height="300" alt="The photo of croissants on display in the cafe">
+            </div>
+
+            <div class="home__cta--about">
+                <h2 style="margin-top: 0;">Learn More About Us!</h2>
+                <a href="about.html">About Us</a>
+            </div>
+
+            <div class="home__cta--menu">
+                <h2>Explore Our Entrees</h2>
+                <p>
+                    Our Cafe's menu houses a wide variety of beverages and pastries. 
+                    From your everyday Americano to the more refined cold nitro brew, we aim to suit even the person with the pickiest taste.
+                    If your purpose of visit is not for the coffees, how about try delving into the pastries we have to offer?
+                    Feast your eyes upon the menu now!
+                </p>
+                <a href="menu.html">View Menu</a>
+            </div>
+
+            <div class="home__cta--promo">
+                <h2>Limited-Time Deals</h2>
+                <p>
+                    Are our regular offer still unable to satisfy you? 
+                    Are you still searching for something exotic? Something that will make you excited as a child would?
+                    Or are you simply looking for better deals to satisfy all your carvings at once?
+                    Just visit our promo page to learn more about our latest exclusive entrees that will definitely interest you.
+                    Regular set deals is also available.
+                </p>
+                <a href="menu.html">View Promo</a>
+            </div>
+
+            <div class="home__gallery">
+                <h2 class="home__gallery--subhead">Gallery</h2>
+                
+                <img src="images/photos/Gallery1.jpg" width="300" height="300" alt="The picture of a tray of croissants" class="img1">
+                <img src="images/photos/Gallery2.jpg" width="300" height="300" alt="The picture of a plate of Pain au Chocolat" class="img2">
+                <img src="images/photos/Gallery3.jpg" width="300" height="300" alt="A bunch of mini mushroom pie" class="img3">
+                <img src="images/photos/Gallery4.jpg" width="300" height="300" alt="A slice of Tiramisu" class="img4">
+                <img src="images/photos/Gallery5.jpg" width="300" height="300" alt="A few mini fruit tart" class="img5">
+                <img src="images/photos/Gallery6.jpg" width="300" height="300" alt="A cup of aromatic black coffee" class="img6">
+                <img src="images/photos/Gallery7.jpg" width="300" height="300" alt="A coffee cup filled with Cappuccino" class="img7">
+                <img src="images/photos/Gallery9.jpg" width="300" height="300" alt="A picture of a club sandwich in wrapping paper" class="img8">
+            </div>
         </main>
 
         <footer>
@@ -139,9 +586,9 @@
                 <b>Daily Cafe</b>
                 <br>
                 <br>
-                5, Jalan Malinda,
+                Unit 6, Tower A,
                 <br>
-                47300 Petaling Jaya,
+                47100 Subang Jaya,
                 <br>
                 Kuala Lumpur,
                 <br>
