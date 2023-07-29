@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Website template</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/global.css">
+
+        <script src="scripts/global.js"></script>
+
+        <style>
+            main
+            {
+                padding-top: 2em;
+                padding-bottom: 2em;
+
+                background-image: linear-gradient(#8d7b68, #a4907c, #c8b6a6, #f1dec9);
+            }
+
+            hr
+            {
+                border-top-style: solid;
+                border-top-width: 2px;
+                border-top-color: #000000;
+
+                width: 95%;
+            }
+
+            h2
+            {
+                text-align: center;
+            }
+
+            .promo__header
+            {
+                text-align: center;
+            }
+
+            .promo__header h1
+            {
+                margin-top: 0;
+            }
+
+            .promo__limited, .promo__regular
+            {
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+
+                padding: 1em;
+
+                background-color: #c8b6a6;
+            }
+
+            article img
+            {
+                width: 100%;
+                height: auto;
+                object-fit: fill;
+            }
+
+            .promo__regular article
+            {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+
+            .promo__regular article h3
+            {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .promo__regular article p
+            {
+                grid-column: 1 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .promo__regular article img
+            {
+                grid-column: 1 / 3;
+                grid-row: 3 / 4;
+            }
+
+            @media screen and (min-width: 768px)
+            {
+                main
+                {
+                    font-size: 1.5em;
+                }
+
+                .promo__regular article p
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+
+                .promo__regular article img
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+            }
+        </style>
+    </head>
+
+    <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
+    <body onresize="responsiveNav();" onload="initialiseValues()">
+        
+        <nav>
+            <div class="menuButton" onclick="openNav();">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="index.html">
+                <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
+            </a>
+
+            <ul class="sidebarNav" id="sidebarNav">
+                <!--The close button/icon is represented by a multiplication sign (cross)-->
+                <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">
+                    &times;
+                </li>
+
+                <li>
+                    <a href="index.html">Home</a>
+                    <br>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="contact.html">Contact</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li class="dropdown--promo">
+                    <a href="menu.html">Menu</a>
+                    <br>
+                    <!-- Inline style is used to style one particular hr as dashed -->
+                    <hr style="border-style: dashed;"> 
+                    <ul class="dropdown--promoContent">
+                        <li>
+                            <a href="promo.html">Promo</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="order.html">Order</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+
+                <li class="signIn">
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
+                </li>
+            </ul>
+            
+            <!--This is an empty div that is used to center other flex items in the nav bar-->
+            <div class="nav__div--empty"></div>
+        </nav>
+
+        <!--The main content of the page-->
+        <main>
+            <div class="promo__header">
+                <h1>Promo</h1>
+            </div>
+
+            <section class="promo__limited">
+                <h2>Limited-Time Deals</h2>
+                <article>
+                    <h3>Grand Opening Promotion</h3>
+                    <p>
+                        This is the grand opening of the very first outlet of Daily Cafe. Daily Cafe is all set to embark on this new journey, and
+                        this will be the first major milestone for Daily Cafe. We are ready to bring coffee making to new heights. Our coffees are hand brewed by 
+                        our team of professional baristas that are dedicated to serve only the most refined and authentic coffee. As part of the grand opening 
+                        celebration event, Daily Cafe will be offering a <b>50% discount</b> for the first 150 customer on our grand opening day.<br>
+                        <br>
+                        Join us at our headquarter outlet at the location:
+                        <br>
+                        Unit 6, Tower A,
+                        <br>
+                        47100 Subang Jaya,
+                        <br>
+                        Kuala Lumpur,
+                        <br>
+                        Malaysia. 
+                    </p>
+
+                    <img src="images/posters/limitedPromotion1.png" width="220" height="150" alt="The promotional poster of detailing the grand opening event of Daily Cafe">
+                </article>
+            </section>
+
+            <hr>
+
+            <section class="promo__regular">
+                <h2>Regular Deals</h2>
+                <article class="regular1">
+                    <h3>Coffee &plus; Pastry</h3>
+                    <p>
+                        Feeling a little peckish when having a cup of coffee?<br>
+                        Craving some sort of pastry while your are having our freshly brewed coffee?<br>
+                        Then this set deal will be perfect for you.<br>
+                        Just order:<br>
+                        <strong>1 coffee of your choice (hot or iced)</strong><br>
+                        <strong>1 pastry of your choice</strong><br>
+                        And enjoy a 10% discount off the total price.<br>
+                        If your craving some pastry while drinking our coffe, remember to order this set deal get more bang for your buck.
+                    </p>
+
+                    <img src="images/posters/setDeals2.png" width="300" height="300" alt="An illustration of the Coffee + Pastry Set Deal">
+                </article>
+
+                <article>
+                    <h3>Coffee &plus; Chocolate = FREE 1 Croissant</h3>
+                    <p>
+                        Gather around everyone!<br>
+                        Here's a deal you definitely can't resist.<br>
+                        This set deal offers a free croissant if you order a coffee and the chocolate drink from Daily Cafe.<br>
+                        You simply need to pick:<br>
+                        <strong>One coffee your choice (hot or iced)</strong><br>
+                        <strong>Daily Cafe's signature chocolate drink (hot or iced)</strong><br>
+                        Then, you can get a free buttery, aromatic croissant<br>
+                        <span style="font-style: italic; font-size: 0.7em;">&ast; While stocks last</span>
+                    </p>
+
+                    <img src="images/posters/setDeals1.png" width="300" height="300" alt="An illustration of the Coffee + Pastry Set Deal">
+                </article>
+            </section>
+
+            <div style="margin-left: auto; margin-right: auto; margin-top: 2em; width: 90%; font-size: 0.8em; font-weight: bold;">
+                Note: Pictures shown are for illustration purposes only, they do not represent the final product.
+            </div>
+            
+        </main>
+
+        <footer>
+            <!--Address information-->
+            <div class="footer__contact">
+                <img src="images/icons/cafeLogo.png" width="50" height="50" alt="The logo of the cafe" style="vertical-align: middle ;">
+                <b>Daily Cafe</b>
+                <br>
+                <br>
+                Unit 6, Tower A,
+                <br>
+                47100 Subang Jaya,
+                <br>
+                Kuala Lumpur,
+                <br>
+                Malaysia.
+                <br>
+                <br>
+                +6013-7980536 (Contact Number)
+                <br>
+                <br>
+                dailycafe123@gmail.com
+                <br>
+                <br>
+                <span style="font-size:0.5em; font-style: italic;">Copyright &copy; 2023 dailycafe</span>
+            </div>
+
+            <!--Links in footer-->
+            <div class="footer__links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <br>
+                </ul>
+
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="promo.html">Promo</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+
+</html>
