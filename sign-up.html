@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Website template</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/global.css">
+
+        <script src="scripts/global.js"></script>
+
+        <script>
+            function showPassword()
+            {
+                var newPwd = document.getElementById("newPass");
+                var confirmPwd = document.getElementById("confirmPass");
+
+                if (newPwd.type === "password")
+                {
+                    newPwd.type = "text";
+                    confirmPwd.type = "text";
+                }
+                else
+                {
+                    newPwd.type = "password";
+                    confirmPwd.type = "password";
+                }
+            }
+
+
+            function checkPassword(evt)
+            {
+                var firstPass = document.forms["signUpForm"]["newPass"].value;
+                var confirmPass = document.forms["signUpForm"]["confirmPass"].value;
+
+                if (firstPass != confirmPass)
+                {
+                    evt.preventDefault();
+                    alert("The passwords entered are not the same! Please re-enter the password.")
+                }
+                else if (!(firstPass.includes('!') || (firstPass.includes('@')) || (firstPass.includes('#')) || (firstPass.includes('$')) || (firstPass.includes('&')) || (firstPass.includes('*'))))
+                {
+                    evt.preventDefault();
+                    alert("Your password did not contain a special characters in the list. Please re-enter a new password.")
+                }
+                else
+                {
+                    alert("Registered successfully.")
+                }
+            }
+        </script>
+
+        <style>
+            .signUp__header
+            {
+                padding: 0.5em;
+
+                text-align: center;
+            }
+
+            .signUp__form
+            {
+                background-color: #c8b6a6;
+
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+                padding-top: 1.5em;
+                padding-bottom: 1.5em;
+            }
+
+            form
+            {
+                display: grid;
+                grid-template-columns: auto auto;
+
+                background-color: #f1dec9;
+                padding: 0.5em;
+                box-shadow: 0px 5px 10px #000000;
+            }
+            
+            input[name="signUp--btn"], input[name="cancelSignUp"]
+            {
+                margin: 0.5em;
+            }
+
+            input[name="signUp--btn"]
+            {
+                background-color: green;
+                padding: 0.5em;
+
+                font-weight: bold;
+                color: #ffffff;
+            }
+
+            input[name="cancelSignUp"]
+            {
+                background-color: red;
+                padding: 0.5em;
+
+                font-weight: bold;
+                color: #ffffff;
+            }
+
+            input[name="signUp--btn"]:hover, input[name="cancelSignUp"]:hover
+            {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+            }
+
+            @media screen and (min-width: 768px)
+            {
+                main
+                {
+                    font-size: 1.5em;
+                }
+
+                input
+                {
+                    font-size: 1em;
+                }
+            }
+        </style>
+    </head>
+
+    <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
+    <body onresize="responsiveNav();" onload="initialiseValues()">
+        
+        <nav>
+            <div class="menuButton" onclick="openNav();">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="index.html">
+                <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
+            </a>
+
+            <ul class="sidebarNav" id="sidebarNav">
+                <!--The close button/icon is represented by a multiplication sign (cross)-->
+                <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">
+                    &times;
+                </li>
+
+                <li>
+                    <a href="index.html">Home</a>
+                    <br>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="contact.html">Contact</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li class="dropdown--promo">
+                    <a href="menu.html">Menu</a>
+                    <br>
+                    <!-- Inline style is used to style one particular hr as dashed -->
+                    <hr style="border-style: dashed;"> 
+                    <ul class="dropdown--promoContent">
+                        <li>
+                            <a href="promo.html">Promo</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="order.html">Order</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+
+                <li class="signIn">
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
+                </li>
+            </ul>
+            
+            <!--This is an empty div that is used to center other flex items in the nav bar-->
+            <div class="nav__div--empty"></div>
+        </nav>
+
+        <main>
+            <div class="signUp__header">
+                <h1>Sign Up</h1>
+                <p>
+                    Sign up with Daily Cafe now.<br>
+                    Just fill up the form below to create an account with us.<br>
+                    You can enjoy the benefits as listed below.<br>
+                </p>
+
+                <ul style="text-align: left;">
+                    <li>Latest News of Limited-time promotions</li>
+                    <li>Immediate notification of social media events or campaigns</li>
+                    <li>Regular E-coupons (sent to Email)</li>
+                </ul>
+            </div>
+
+            <div class="signUp__form">
+                <form name="signUpForm" onsubmit="return checkPassword(event)">
+                    <label for="userEmail" style="grid-column: 1 / 3; grid-row: 1 / 2;">Email:</label>
+                    <input type="email" name="userEmail" id="userEmail" required placeholder="Enter Email" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+
+                    <label for="username" style="grid-column: 1 / 3; grid-row: 3 / 4;">New Username (Max 20 characters):</label>
+                    <input type="text" name="username" id="username" required maxlength="20" placeholder="Enter New Username" style="grid-column: 1 / 3; grid-row: 4 / 5;">
+
+                    <label for="newPass" style="grid-column: 1 / 3; grid-row: 5 / 6;">Password (Min 8 characters with one [&excl;, @, #, $, &amp;, &ast;]):</label>
+                    <input type="password" name="newPass" id="newPass" required  placeholder="Enter New Password" minlength="8" style="grid-column: 1 / 3; grid-row: 6 / 7;">
+
+                    <label for="confirmPass" style="grid-column: 1 / 3; grid-row: 7 / 8;">Confirm Password:</label>
+                    <input type="password" name="confirmPass" id="confirmPass" required minlength="8" placeholder="Enter the same password as above" style="grid-column: 1 / 3; grid-row: 8 / 9;">
+
+                    <input type="checkbox" name="showPass" id="showPass" style="grid-column: 1 / 2; grid-row: 9 / 10; justify-self: left;" onclick="showPassword()">
+                    <label for="showPass" style="grid-column: 1 / 2; grid-row: 9 / 10; margin-left: 1.5em;">Show Password</label>
+
+                    <input type="submit" value="Register" name="signUp--btn" id="signUp--btn" style="grid-column: 1 / 2; grid-row: 10 / 11;">
+                    <input type="reset" value="Cancel" name="cancelSignUp" id="cancelSignUp" style="grid-column: 2 / 3; grid-row: 10 / 11;">
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <!--Address information-->
+            <div class="footer__contact">
+                <img src="images/icons/cafeLogo.png" width="50" height="50" alt="The logo of the cafe" style="vertical-align: middle;">
+                <b>Daily Cafe</b>
+                <br>
+                <br>
+                Unit 6, Tower A,
+                <br>
+                47100 Subang Jaya,
+                <br>
+                Kuala Lumpur,
+                <br>
+                Malaysia.
+                <br>
+                <br>
+                +6013-7980536 (Contact Number)
+                <br>
+                <br>
+                dailycafe123@gmail.com
+                <br>
+                <br>
+                <span style="font-size:0.5em; font-style: italic;">Copyright &copy; 2023 dailycafe</span>
+            </div>
+
+            <!--Links in footer-->
+            <div class="footer__links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <br>
+                </ul>
+
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="promo.html">Promo</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+
+</html>
