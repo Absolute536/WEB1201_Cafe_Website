@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <title>Website template</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/global.css">
+
+        <script src="scripts/global.js"></script>
+
+        <style>
+            .contact__header
+            {
+                padding-top: 2em;
+                padding-bottom: 2em;
+                padding-left: 3em;
+                padding-right: 3em;
+
+                background-image: linear-gradient(rgba(164, 144, 124, 0.3), rgba(164, 144, 124, 0.3)), url(images/photos/Contact_Hero.jpg);
+                background-size: cover;
+                background-position: center;
+
+                text-align: center;
+                font-size: 1em;
+            }
+
+            .contact__location, .contact__social
+            {
+                margin-top: 1em;
+                margin-bottom: 1em;
+                margin-left: auto;
+                margin-right: auto;
+                width: 90%;
+
+                padding: 0.5em;
+
+                background-color: #f1dec9;
+
+                text-align: center;
+            }
+
+            .contact__location p span
+            {
+                font-weight: bold;
+
+                background-color: #c8b6a6;
+            }
+
+            .contact__location--gallery 
+            {
+                display: grid;
+                grid-template-columns: auto auto;
+                column-gap: 0.3em;
+                row-gap: 0.3em;
+
+                margin-top: 1em;
+                margin-bottom: 1em;
+            }
+
+            .contact__location--gallery img
+            {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .img1
+            {
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .img2
+            {
+                grid-column: 1 / 3;
+                grid-row: 2 / 3;
+            }
+
+            .img3
+            {
+                grid-column: 1 / 3;
+                grid-row: 3 / 4;
+            }
+
+            .contact__social
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: nowrap;
+            }
+
+            .contact__social span
+            {
+                text-decoration: underline;
+            }
+
+            .contact__social img
+            {
+                display: inline-block;
+            }
+
+            .contact__social hr
+            {
+                width: 90%;
+                border-top-style: solid;
+                border-top-color: #000000;
+                border-top-width: 2px;
+            }
+
+            @media screen and (min-width: 768px)
+            {
+                main
+                {
+                    font-size: 1.5em;
+                }
+
+                .img2
+                {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                }
+
+                .img3
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+            }
+        </style>
+    </head>
+
+    <!--call responsiveNav() everytime the browser resized to make sure the navigation bar displays correctly-->
+    <body onresize="responsiveNav();" onload="initialiseValues()">
+        
+        <nav>
+            <div class="menuButton" onclick="openNav();">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <a href="index.html">
+                <img src="images/icons/cafeLogo.png" width="75" height="75" alt="The Logo of the cafe">
+            </a>
+
+            <ul class="sidebarNav" id="sidebarNav">
+                <!--The close button/icon is represented by a multiplication sign (cross)-->
+                <li class="closeButton" id="closeButton" onclick="closeNav();" onmouseover="changeColourIn();" onmouseout="changeColourOut();">
+                    &times;
+                </li>
+
+                <li>
+                    <a href="index.html">Home</a>
+                    <br>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="contact.html">Contact</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li class="dropdown--promo">
+                    <a href="menu.html">Menu</a>
+                    <br>
+                    <!-- Inline style is used to style one particular hr as dashed -->
+                    <hr style="border-style: dashed;"> 
+                    <ul class="dropdown--promoContent">
+                        <li>
+                            <a href="promo.html">Promo</a>
+                        </li>
+                    </ul>
+                    <hr>
+                </li>
+
+                <li>
+                    <a href="order.html">Order</a>
+                    <br>
+                    <hr>
+                </li>
+                
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+
+                <li class="signIn">
+                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
+                </li>
+            </ul>
+            
+            <!--This is an empty div that is used to center other flex items in the nav bar-->
+            <div class="nav__div--empty"></div>
+        </nav>
+
+        <!--The main content of the page-->
+        <main>
+            <div class="contact__header">
+                <h1>Contact Us</h1>
+                <p>
+                    Are you eager to experience the allures of our cafe in person?<br>
+                    Worry Not! The contact information of our cafe is listed below.<br>
+                    <strong>We welcome you with open arms at any time!</strong>
+                </p>
+            </div>
+
+            <div class="contact__location">
+                <h2>Cafe Locations</h2>
+                <p>
+                    Our cafe is located at the following outlets:
+                    <br>
+                    <br>
+                    Daily Cafe @ Putrajaya (Block unit 1, D tower, Jalan Stesen Sentral)<br>
+                    <span>Operating Hours: 9.00am &mdash; 7.30pm</span><br>
+                    <br>
+                    Daily Cafe @ Kl Sentral (Block unit 4, E tower, Jalan Stesen Sentral)<br>
+                    <span>Operating Hours: 9.00am &mdash; 8.00pm</span><br>
+                    <br>
+                    Daily Cafe Headquarters @ Subang Jaya (Block unit 6, A tower, Jalan Stesen Sentral)<br>
+                    <span>Operating Hours: 9.00am &mdash; 7.30pm</span><br>
+                </p>
+
+                <div class="contact__location--gallery">
+                    <img src="images/photos/Location_Exterior.jpg" width="190" height="128" alt="A picture of the exterior of the Subang Jaya outlet" class="img1">
+                    <img src="images/photos/Location_Interior.jpg" width="190" height="128" alt="A picture of the exterior of the Subang Jaya outlet" class="img2">
+                    <img src="images/photos/Home_feature2_Calm_Atmosphere.jpg" width="190" height="128" alt="A picture of the exterior of the Subang Jaya outlet" class="img3">
+                </div>
+            </div>
+
+            <div class="contact__social">
+                <h2>Contact Information</h2>
+                <span>Phone Number</span>
+                <img src="images/icons/WhatsApp.svg" width="150" height="150" alt="WhatsApp Logo">
+                <ul style="list-style-type: none; padding: 0;">
+                    <li>Putrajaya: +603-4379980</li>
+                    <li>KL Sentral: +604-7891234</li>
+                    <li>Subang Jaya: +604-3280706</li>
+                </ul>
+
+                <hr>
+
+                <span>Email</span>
+                <img src="images/icons/email-svgrepo-com.svg" width="150" height="150" alt="An Logo of an envelope that represent email">
+                dailycafe123@gmail.com
+
+                <hr>
+
+                <span>Social Media</span>
+                <a href="https://www.facebook.com/"><img src="images/icons/2021_Facebook_icon.svg" width="150" height="150" alt="Facebook Logo" style="margin-top: 0.5em;"></a>
+                Facebook
+                <a href="https://www.instagram.com/"><img src="images/icons/Instagram_logo_2016.svg" width="150" height="150" alt="Instagram Logo" style="margin-top: 0.5em;"></a>
+                Instagram
+            </div>
+        </main>
+
+        <footer>
+            <!--Address information-->
+            <div class="footer__contact">
+                <img src="images/icons/cafeLogo.png" width="50" height="50" alt="The logo of the cafe" style="vertical-align: middle ;">
+                <b>Daily Cafe</b>
+                <br>
+                <br>
+                Unit 6, Tower A,
+                <br>
+                47100 Subang Jaya,
+                <br>
+                Kuala Lumpur,
+                <br>
+                Malaysia.
+                <br>
+                <br>
+                +604-3280706 (Contact Number)
+                <br>
+                <br>
+                dailycafe123@gmail.com
+                <br>
+                <br>
+                <span style="font-size:0.5em; font-style: italic;">Copyright &copy; 2023 dailycafe</span>
+            </div>
+
+            <!--Links in footer-->
+            <div class="footer__links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <br>
+                </ul>
+
+                <ul>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="promo.html">Promo</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+
+</html>

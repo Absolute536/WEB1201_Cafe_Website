@@ -76,6 +76,12 @@ a:visited
     color: blue;
 }
 
+/* Set the font family of headings */
+h1, h2, h3
+{
+    font-family: Noto-serif, "Libre Baskerville", Georgia;
+}
+
 /* The back of the webpage itself */
 body
 {   
