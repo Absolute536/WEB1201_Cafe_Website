@@ -49,51 +49,51 @@ function responsiveNav()
 
 function initialiseValues()
 {
-    //sessionStorage.setItem("sign-in", "Sign In");
-    //sessionStorage.setItem("sign-out", "Sign Out");
+    //sessionStorage.setItem("sign-in", "Log In");
+    //sessionStorage.setItem("sign-out", "Log Out");
 
     if (sessionStorage.getItem("username") == null)
     {
-        document.getElementById("signIn--link").innerHTML = "Sign In";
+        document.getElementById("logIn--link").innerHTML = "Log In";
     }
     else
     {
-        document.getElementById("signIn--link").innerHTML = sessionStorage.getItem("username");
+        document.getElementById("logIn--link").innerHTML = sessionStorage.getItem("username");
     }
 }
 
 function usernameFadeIn()
 {
-    var signInLink; 
-    signInLink = document.getElementById("signIn--link");
+    var logInLink; 
+    logInLink = document.getElementById("logIn--link");
 
-    if (signInLink.innerHTML != "Sign In")
+    if (logInLink.innerHTML != "Log In")
     {
-        signInLink.innerHTML = "Sign Out";
+        logInLink.innerHTML = "Log Out";
     }
 
-    signInLink.addEventListener("mouseout", usernameFadeOut);
+    logInLink.addEventListener("mouseout", usernameFadeOut);
 }
 
 function usernameFadeOut()
 {
-    var signInLink;
-    signInLink = document.getElementById("signIn--link");
+    var logInLink;
+    logInLink = document.getElementById("logIn--link");
 
-    if (signInLink.innerHTML == "Sign Out")
+    if (logInLink.innerHTML == "Log Out")
     {
-        signInLink.innerHTML = sessionStorage.getItem("username");
+        logInLink.innerHTML = sessionStorage.getItem("username");
     }
 }
 
 function logOut(evt)
 {
-    var signInLink;
-    signInLink = document.getElementById("signIn--link");
+    var logInLink;
+    logInLink = document.getElementById("logIn--link");
 
-    if (signInLink.innerHTML == "Sign Out")
+    if (logInLink.innerHTML == "Log Out")
     {
-        signInLink.innerHTML = "Sign In";
+        logInLink.innerHTML = "Log In";
         sessionStorage.removeItem("username");
 
         evt.preventDefault();

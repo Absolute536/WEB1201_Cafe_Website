@@ -185,7 +185,7 @@ nav
 }
 
 /* The list item that contains the sign in button */
-.sidebarNav li.signIn
+.sidebarNav li.logIn
 {
     margin-top: 1em;
     text-align: center;
@@ -194,13 +194,13 @@ nav
 /* Configure the background color to change when the cursor is hovered over for the links in the sidebar */
 /* The sign in button is exempted from this */
 /* The close icon is exempted from this through javascript */
-.sidebarNav li:not(li.signIn):hover
+.sidebarNav li:not(li.logIn):hover
 {
     background-color: #d9d9d9;
 }
 
 /* The sign-in button itself */
-.sidebarNav li .signIn--link
+.sidebarNav li .logIn--link
 {
     background-color: #d9d9d9;
     border-style: solid;
@@ -211,7 +211,7 @@ nav
 }
 
 /* invert the color of the button on hover */
-.sidebarNav li .signIn--link:hover
+.sidebarNav li .logIn--link:hover
 {
     background-color: #000000;
     color: #d9d9d9;
@@ -418,7 +418,7 @@ footer
         transition: 0s; /* remove any transition effect */ 
     }
 
-    .sidebarNav li.signIn
+    .sidebarNav li.logIn
     {
         margin: 0; /* remove the margin above the sign in button on desktop */
     }
@@ -431,7 +431,7 @@ footer
     }
 
     /* make the text color change on hover instead of the whole background on desktop display */
-    .sidebarNav li:not(li.signIn):hover
+    .sidebarNav li:not(li.logIn):hover
     {
         background-color: #c8b6a6;
         color: #d9d9d9;

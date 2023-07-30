@@ -27,31 +27,31 @@
                 }
             }
 
-            function signInMsg()
+            function logInMsg()
             {
-                alert("Sign In Successfully.");
+                alert("Log In Successfully.");
 
                 var name;
 
-                name = document.forms["signInForm"]["username"].value;
+                name = document.forms["logInForm"]["username"].value;
 
                 sessionStorage.setItem("username", name);
             }
         </script>
 
         <style>
-            .signIn__heading
+            .logIn__heading
             {
                 text-align: center;
                 padding: 0.5em;
             }
 
-            .signIn__heading h1
+            .logIn__heading h1
             {
                 font-family: Noto-serif, "Libre Baskerville", Georgia;
             }
 
-            .signIn__section
+            .logIn__section
             {
                 background-color: #c8b6a6;
                 padding: 1em;
@@ -68,7 +68,7 @@
                 box-shadow: 0px 5px 10px #000000;
             }
 
-            input[name="signIn--btn"]
+            input[name="logIn--btn"]
             {
                 width: 100%;
                 background-color: #c8b6a6;
@@ -83,7 +83,7 @@
                 
             }
 
-            input[name="signIn--btn"]:hover
+            input[name="logIn--btn"]:hover
             {
                 background-color: #a4907c;
             }
@@ -163,8 +163,8 @@
                     <a href="faq.html">FAQ</a>
                 </li>
 
-                <li class="signIn">
-                    <a href="sign-in.html" class="signIn--link" id="signIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Sign In</a>
+                <li class="logIn">
+                    <a href="log-in.html" class="logIn--link" id="logIn--link" onmouseover="usernameFadeIn()" onclick="logOut(event)">Log In</a>
                 </li>
             </ul>
             
@@ -174,12 +174,12 @@
 
         <!--The main content of the page-->
         <main>
-            <div class="signIn__heading">
-                <h1>Sign In</h1>
+            <div class="logIn__heading">
+                <h1>Log In</h1>
             </div>
 
-            <div class="signIn__section">
-                <form name="signInForm" onsubmit="return signInMsg()">
+            <div class="logIn__section">
+                <form name="logInForm" onsubmit="return logInMsg()">
                     
                     <label for="username" style="grid-column: 1 / 3; grid-row: 1 / 2">Username:</label>
                     <input type="text" name="username" id="username" required placeholder="Enter Username" style="grid-column: 1 / 3; grid-row: 2 / 3;">
@@ -193,7 +193,7 @@
                     <input type="checkbox" name="showPwd" id="showPwd" style="grid-column: 1 / 2; grid-row: 6 / 7; justify-self: left;" onclick="showPassword()">
                     <label for="showPwd" style="grid-column: 1 / 2; grid-row: 6 / 7; margin-left: 1.5em;">Show Password</label>
                 
-                    <input type="submit" value="Sign In" name="signIn--btn" id="signIn--btn" style="grid-column: 1 / 3; grid-row: 7 / 8;">
+                    <input type="submit" value="Log In" name="logIn--btn" id="logIn--btn" style="grid-column: 1 / 3; grid-row: 7 / 8;">
 
                     <div style="font-size: 0.7em; font-style: italic; text-align: right; grid-column: 1 / 3; grid-row: 8 / 9;">
                         <a href="#">Forgot Password?</a>
