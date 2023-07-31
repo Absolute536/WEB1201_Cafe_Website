@@ -99,3 +99,12 @@ function logOut(evt)
         evt.preventDefault();
     }
 }
+
+function preventLogIn(evt)
+{
+    if (sessionStorage.getItem("username") != null)
+    {
+        evt.preventDefault();
+        alert("You are logged in.");
+    }
+}

@@ -3,7 +3,7 @@
 <html lang="en">
 
     <head>
-        <title>Website template</title>
+        <title>Daily Cafe | Promo</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,12 +73,14 @@
             {
                 grid-column: 1 / 3;
                 grid-row: 1 / 2;
+
             }
 
             .promo__regular article p
             {
                 grid-column: 1 / 3;
                 grid-row: 2 / 3;
+
             }
 
             .promo__regular article img
@@ -94,15 +96,38 @@
                     font-size: 1.5em;
                 }
 
+                .promo__regular article h3
+                {
+                    padding-left: 2em;
+                }
+
                 .promo__regular article p
+                {
+                    padding-left: 2em;
+
+                }
+
+                .promo__regular .regular1 p
                 {
                     grid-column: 1 / 2;
                     grid-row: 2 / 3;
                 }
 
-                .promo__regular article img
+                .promo__regular .regular1 img
                 {
                     grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+
+                .promo__regular .regular2 p
+                {
+                    grid-column: 2 / 3;
+                    grid-row: 2 / 3;
+                }
+
+                .promo__regular .regular2 img
+                {
+                    grid-column: 1 / 2;
                     grid-row: 2 / 3;
                 }
             }
@@ -208,6 +233,18 @@
 
                     <img src="images/posters/limitedPromotion1.png" width="220" height="150" alt="The promotional poster of detailing the grand opening event of Daily Cafe">
                 </article>
+
+                <article>
+                    <h3>Fridays Happy Hour</h3>
+                    <p>
+                        To celebrate our milestone of 300 daily customer, Daily Cafe have decided to launch a happy hour event, which will offer up to 15% discount on all regular menu items.
+                        Daily Cafe wouldn't be able to accomplish this major milestone without the support of fellow dear customers. Therefore, we will show our appreciation towards you all
+                        by introducing this Happy Hour event. The event is valid only for <strong>1 month</strong> on <strong>December 2020</strong>, so don't waste this opportunity and
+                        grab the chance to enjoy our coffee at a lower price.<br>
+                    </p>
+
+                    <img src="images/posters/limitedPromotion2.png" width="220" height="150" alt="The promotional poster of detailing the grand opening event of Daily Cafe">
+                </article>
             </section>
 
             <hr>
@@ -230,7 +267,7 @@
                     <img src="images/posters/setDeals2.png" width="300" height="300" alt="An illustration of the Coffee + Pastry Set Deal">
                 </article>
 
-                <article>
+                <article class="regular2">
                     <h3>Coffee &plus; Chocolate = FREE 1 Croissant</h3>
                     <p>
                         Gather around everyone!<br>
@@ -285,6 +322,10 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <br>
+                    <br>
+                    <br>
+                    <li>Have an Account? <a href="log-in.html" onclick="preventLogIn(event)">Log In</a></li>
+                    <li>Don't Have an Account? <a href="sign-up.html">Sign Up Now</a></li>
                 </ul>
 
                 <ul>
