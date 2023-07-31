@@ -117,6 +117,14 @@
                 font-weight: bold;
             }
 
+            form
+            {
+                display: grid;
+                grid-template-columns: auto auto;
+                column-gap: 1em;
+                row-gap: 0.3em;
+            }
+
             @media screen and (min-width: 768px)
             {
                 main
@@ -129,7 +137,7 @@
                     font-size: 1em;
                 }
 
-                input
+                input:not([type=radio])
                 {
                     font-size: 1em;
                 }
@@ -139,6 +147,7 @@
                     padding-top: 0.5em;
                     
                 }
+
             }
         </style>
     </head>
@@ -255,33 +264,46 @@
                         <li>A cafe staff will call the phone number submitted in the booking form within 15 minutes of form submission to verify details of your booking.</li>
                     </ol>
                 </div>
-                <form name="orderForm" onsubmit="return validateForm(event)">
-                    <div style="display: grid; grid-template-columns: auto auto; column-gap: 1em; row-gap: 0.3em;">
-                        <label for="fname" style="grid-column: 1 / 3; grid-row: 1 / 2;">First Name:</label>
-                        <input type="text" id="fname" name="fname" required style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                <form name="orderForm" id="orderForm" onsubmit="return validateForm(event)">
+
+                    <fieldset form="orderForm" style="grid-column: 1 / 3; grid-row: 1 / 2;">
+                        <legend>Cafe Outlet</legend>
+                        <input type="radio" id="outlet1" name="outlet" required value="PutraJaya Outlet">
+                        <label for="outlet1">PutraJaya Outlet</label>
+
+                        <input type="radio" id="outlet2" name="outlet" required value="KL Sentral Outlet">
+                        <label for="outlet2">KL Sentral Outlet</label>
+
+                        <input type="radio" id="outlet3" name="outlet" required value="Subang Jaya Outlet">
+                        <label for="outlet3">Subang Jaya Outlet</label>
+                    </fieldset>
                     
-                        <label for="lname" style="grid-column: 1 / 3; grid-row: 3 / 4;">Last Name:</label>
-                        <input type="text" id="lname" name="lname" required style="grid-column: 1 / 3; grid-row: 4 / 5;">
+ 
+                    <label for="fname" style="grid-column: 1 / 3; grid-row: 2 / 3;">First Name:</label>
+                    <input type="text" id="fname" name="fname" required style="grid-column: 1 / 3; grid-row: 3 / 4;">
+                    
+                    <label for="lname" style="grid-column: 1 / 3; grid-row: 4 / 5;">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required style="grid-column: 1 / 3; grid-row: 5 / 6;">
 
                     
-                        <label for="date" style="grid-column: 1 / 2; grid-row: 5 / 6;">Date:</label>
-                        <input type="date" id="date" name="date" required style="grid-column: 1 / 2; grid-row: 6 / 7;">
+                    <label for="date" style="grid-column: 1 / 2; grid-row: 6 / 7;">Date:</label>
+                    <input type="date" id="date" name="date" required style="grid-column: 1 / 2; grid-row: 7 / 8;">
                     
-                        <label for="time" style="grid-column: 2 / 3; grid-row: 5 / 6">Time:</label>
-                        <input type="time" id="time" name="time" required style="grid-column: 2 / 3; grid-row: 6 / 7;">
+                    <label for="time" style="grid-column: 2 / 3; grid-row: 6 / 7">Time:</label>
+                    <input type="time" id="time" name="time" required style="grid-column: 2 / 3; grid-row: 7 / 8;">
                     
-                        <label for="person-number" style="grid-column: 1 / 2; grid-row: 7 / 8;">Number of Person (Max 8):</label>
-                        <input type="number" id="person-number" required name="person-number" min="1" max="8" style="grid-column: 1 / 2; grid-row: 8 / 9;">
+                    <label for="person-number" style="grid-column: 1 / 2; grid-row: 8 / 9;">Number of Person (Max 8):</label>
+                    <input type="number" id="person-number" required name="person-number" min="1" max="8" style="grid-column: 1 / 2; grid-row: 9 / 10;">
 
-                        <label for="phone" style="grid-column: 2 / 3; grid-row: 7 / 8;">Phone Number (xxx-xxxxxxx):</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="123-1234567" pattern="[0-9]{3}-[0-9]{7}" style="grid-column: 2 / 3; grid-row: 8 / 9;">
+                    <label for="phone" style="grid-column: 2 / 3; grid-row: 8 / 9;">Phone Number (xxx-xxxxxxx):</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="123-1234567" pattern="[0-9]{3}-[0-9]{7}" style="grid-column: 2 / 3; grid-row: 9 / 10;">
 
-                        <label for="comments" style="grid-column: 1 / 3; grid-row: 9 / 10;">Comments:</label>
-                        <textarea id="comments" name="comments" rows="6" cols="3" style="grid-column: 1 / 3; grid-row: 10 / 16; resize: none;"></textarea>
+                    <label for="comments" style="grid-column: 1 / 3; grid-row: 10 / 11;">Comments:</label>
+                    <textarea id="comments" name="comments" rows="6" cols="3" style="grid-column: 1 / 3; grid-row: 11 / 17; resize: none;"></textarea>
 
-                        <input type="submit" value="Book Now" style="grid-column: 1 / 2; grid-row: 16 / 17;">
-                        <input type="reset" style="grid-column: 2 / 3; grid-row: 16 / 17;">
-                    </div>
+                    <input type="submit" value="Book Now" style="grid-column: 1 / 2; grid-row: 17 / 18;">
+                    <input type="reset" style="grid-column: 2 / 3; grid-row: 17 / 18;">
+                    
                 </form>
             </div>
 
